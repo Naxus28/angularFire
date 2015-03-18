@@ -1,0 +1,34 @@
+var myApp = angular.module("myApp", ["ngRoute","firebase", "ngAnimate", "ui.bootstrap"]);
+
+////============ROUTES============
+myApp.config(function($routeProvider){
+	$routeProvider
+	.when("/events",
+	{
+		controller:"eventsController",
+		templateUrl:"partials/events.html"
+	})
+	.when("/home",
+	{
+		templateUrl:"partials/home.html"
+	})
+	.when("/auth",
+	{
+		controller:"MyAuthCtrl",
+		templateUrl:"partials/home.html"
+	})
+	.when("/user/:userName",
+	{
+		controller:"usersController",
+		templateUrl:"partials/user.html"
+	})
+	.when("/events/:eventDay/:eventDetails",
+	{
+		templateUrl:"partials/event_day.html",
+		controller:"detailsController"
+	})
+	.otherwise(
+	{
+		redirectTo:"/home"
+	})
+});

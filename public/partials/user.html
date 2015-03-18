@@ -1,0 +1,27 @@
+<div>
+	<h1>{{user.facebook.displayName}}</h1>
+	<div>
+		<p><a href="#/events">EVENTS</a></p>
+	<!-- 	{{user.user_name}}
+		{{user.picture}}
+		{{user.link}} -->
+		<!-- <pre>
+			{{user}}
+		</pre> -->
+		<!-- <h2>{{user.facebook.displayName}}</h2> -->
+		<a href="{{user.facebook.cachedUserProfile.link}}" target="_blank"><img src="{{user.facebook.cachedUserProfile.picture.data.url}}" alt="profile_picture" style="float: left;"></a>
+	</div>
+	<div class="user_profile_info">
+		<form ng-submit="addUserInfo(user_profile_info)">
+			<input ng-model="user_profile_info.age" type="text" class="form-control add_event" required id="nameInput" placeholder="Your Age">
+			<input ng-model="user_profile_info.major" type="text" class="form-control add_event" required id="nameInput" placeholder="Your Major">
+			<textarea style="display: block;" ng-model="user_profile_info.about" id="user_textarea" required placeholder="About You"></textarea>
+			<input style="display: block;" type="submit">
+		</form>
+		<div>
+			<p>{{user_profile_data.age}}</p>
+			<p>{{user_profile_data.major}}</p>
+			<p>{{user_profile_data.about}}</p>
+		</div>
+	</div>	
+</div>

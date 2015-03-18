@@ -1,0 +1,130 @@
+body {
+	// width : 100%;
+	-webkit-font-smoothing: antialiased;
+}
+
+// ********HOME TEMPLATE*******
+.header h1{
+	a{
+		text-decoration : none;
+		color : $textColor;
+		&:hover, &:visited {
+			color : $textColor;
+			text-decoration : none;
+		}
+	}
+}
+.footer{
+	color : $textColor;
+	p {
+		font-style : oblique;
+	}
+}
+
+// ********HOME PARTIAL*******
+.welcome{
+	font-size : 4.5em;
+	letter-spacing : 0.07em;
+	color : $textColor;
+	@include proximaNovaBold();
+	// @include SegoeUIBold();
+}
+.cta_text{
+	font-size : 2em;
+	color : $textColor;
+	// @include SegoeUISemiBold();
+}
+.cta{
+	border : none;
+	outline : 2px solid white;
+	background : none;
+	font-size : 2.5em;
+	transition : all 0.5s ease;
+	&:hover{
+		background : rgba(44,45,82,0.5);
+	}
+	a{
+		// @include proximaNovaRegular();
+		text-decoration : none;
+		color : $textColor;
+		// letter-spacing: .05em;
+		&:hover, &:visited {
+			color : $textColor;
+			text-decoration : none;
+		}
+	}
+}
+
+// ********EVENTS PARTIAL*******
+.events_wrapper{
+	background : #AEB7E0;
+	@include SegoeUIRegular();
+	h3{
+		color: $textColor;
+		@include SegoeUISemiBold();
+	}
+	.comments{
+		background: #f5f5f5;
+		border-radius : 10px; 
+		li{
+			list-style-type : none;
+		}
+	}
+	.user_name_msg{
+		@include SegoeUISemiBold();
+	}
+	.msg_body{
+		@include SegoeUIRegularBolder();
+	}
+	span.date_time{
+		font-size: 0.8em;
+		color: #8E8A8A;
+		font-weight: 550;
+		line-height: 25px;
+	}
+	textarea#event_textarea{
+		border:none;
+		border-radius: 10px;
+		padding: 12px;
+	}
+	.panel-heading{
+		h4 a{
+			text-decoration: none;
+		}
+		h2{
+			@include SegoeUIBold();
+			font-size: 3em;
+			text-transform: uppercase;
+			color: $textColor;
+		}
+	}
+	.event_title{
+		@include SegoeUIBold();
+		text-transform: uppercase;
+	}
+	.event_info{
+		font-size : 2em;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

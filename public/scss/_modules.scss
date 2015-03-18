@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'SegoeUILight';
+    src: url('http://static.squarespace.com/static/50abaaf7e4b09a617638422b/t/50d21b81e4b08b028a4868cf/1355946881950/segoe-ui-light.eot?#iefix') format('embedded-opentype'), 
+         url('http://static.squarespace.com/static/50abaaf7e4b09a617638422b/t/50d21b86e4b05f4ba8bed41f/1355946886233/segoe-ui-light.ttf')  format('truetype'),
+}
+.animate.ng-enter {
+	-webkit-transition: 0.5s linear all; /* Chrome */
+	transition: 0.5s linear all;
+	opacity: 0;
+}
+.animate.ng-enter.animate.ng-enter-active {
+	opacity: 1;
+}
+.reveal-animation.ng-enter {
+	-webkit-transition: 0.3s linear all; /* Safari/Chrome */
+	transition: 0.3s linear all; /* All other modern browsers and IE10+ */
+	opacity: 0;
+}
+/******combine both CSS classes together to avoid any CSS-specificity conflicts******/
+.reveal-animation.ng-enter.ng-enter-active {
+	opacity: 1;
+}
+//******forces scrollbar to show******
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 0 10px 0px 0;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}

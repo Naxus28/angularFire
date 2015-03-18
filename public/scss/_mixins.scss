@@ -1,0 +1,46 @@
+@mixin proximaNovaLight() {
+	font-weight: 300; 
+	font-style: normal;
+}
+@mixin proximaNovaExtraLightItalic() {
+	font-weight: 200; 
+	font-style: oblique;
+}
+@mixin proximaNovaRegular() {
+	font-weight: 400; 
+	font-style: normal;
+}
+@mixin proximaNovaBold() {
+	font-weight: 700; 
+	font-style: normal;
+	text-transform: uppercase;
+}
+@mixin proximaNovaExtraBold() {
+	font-weight: 800; 
+	font-style: normal;
+	text-transform: uppercase;
+}
+
+
+@mixin SegoeUILight(){
+	font-family: 'SegoeUILight', Arial, sans-serif;
+	font-weight: 300;	
+};
+@mixin SegoeUIRegular(){
+	font-family: 'SegoeUILight', Arial, sans-serif;
+	font-weight: 400;	
+};
+@mixin SegoeUIRegularBolder(){
+	font-family: 'SegoeUILight', Arial, sans-serif;
+	font-weight: 500;	
+};
+@mixin SegoeUISemiBold(){
+	font-family: 'SegoeUILight', Arial, sans-serif;
+	font-weight: 600;	
+};
+@mixin SegoeUIBold(){
+	font-family: 'SegoeUILight', Arial, sans-serif;
+	font-weight: 700;	
+};
+
+
