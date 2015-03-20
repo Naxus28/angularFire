@@ -3,6 +3,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/********HOME TEMPLATE*******/
 .header h1 a {
   text-decoration: none;
   color: #ffffff;
@@ -19,6 +20,7 @@ body {
   font-style: oblique;
 }
 
+/********HOME PARTIAL*******/
 .welcome {
   font-size: 4.5em;
   letter-spacing: 0.07em;
@@ -52,6 +54,7 @@ body {
   text-decoration: none;
 }
 
+/********EVENTS PARTIAL*******/
 .events_wrapper {
   background: #AEB7E0;
   font-family: 'SegoeUILight', Arial, sans-serif;
@@ -107,6 +110,58 @@ body {
   font-size: 2em;
 }
 
+/********USERS PARTIAL*******/
+.row.user_header {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-bottom: 40px;
+  padding-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.row.user_header .personal_info {
+  color: #ffffff;
+  padding-top: 80px;
+}
+.row.user_header .personal_info div {
+  float: left;
+  padding-left: 10px;
+  padding-top: 32px;
+  position: relative;
+}
+.row.user_header .personal_info div p {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.row.user_header img {
+  width: 130px;
+  border: 5px solid #ffffff;
+  border-radius: 5px;
+  float: left;
+}
+
+.user_profile_info {
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+  background: cover;
+  padding-right: 0;
+  padding-left: 0px;
+}
+
+.user_info_texts {
+  padding-left: 20px;
+  margin-right: 0;
+}
+
+/********GLOBAL*******/
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/********HOME TEMPLATE*******/
 .home_wrapper {
   height: 100%;
   position: relative;
@@ -243,6 +298,23 @@ body {
 .events_wrapper {
   padding-bottom: 50px;
 }
+.events_wrapper header {
+  padding: 12%;
+}
+.events_wrapper header p {
+  text-align: center;
+  color: #ffffff;
+  font-family: 'SegoeUILight', Arial, sans-serif;
+  font-weight: 700;
+}
+.events_wrapper header p:nth-child(1) {
+  font-size: 4em;
+}
+.events_wrapper header p:nth-child(2) {
+  font-family: 'SegoeUILight', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1.8em;
+}
 .events_wrapper .events {
   width: 100%;
   padding: 20px 0;
@@ -252,6 +324,11 @@ body {
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
+}
+@media screen and (max-width: 510px) {
+  .events_wrapper .events .events_form {
+    width: 100%;
+  }
 }
 .events_wrapper .events .events_form textarea#event_textarea {
   width: 100%;
@@ -341,11 +418,6 @@ body {
 .events_wrapper .comments li .msg_body {
   width: 90%;
   float: left;
-}
-.events_wrapper .comments .cleafix:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 .events_wrapper .comments #message_input {
   height: 45px;

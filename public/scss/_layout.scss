@@ -1,4 +1,11 @@
-// ********HOME TEMPLATE*******
+/********GLOBAL*******/
+.clearfix:after {
+  content : "";
+  display : table;
+  clear : both;
+}
+
+/********HOME TEMPLATE*******/
 .home_wrapper{
 	height : 100%;
 	position : relative;
@@ -30,8 +37,6 @@
 		margin-bottom : 0px;
 	}
 }
-
-// ********HOME PARTIAL*******
 .welcome{
 	margin-top : 3%;
 	margin-bottom : 5%;
@@ -133,6 +138,21 @@
 .events_wrapper{
 	// width: 100%;
 	padding-bottom : 50px;
+	header{
+		padding : 12%;
+		p{
+			text-align: center;
+			color: $textColor;
+			@include SegoeUIBold();
+			&:nth-child(1){
+				font-size: 4em;	
+			}
+			&:nth-child(2){
+				@include SegoeUIRegular();
+				font-size: 1.8em;
+			}
+		}
+	}
 	.events{
 		width : 100%; 
 		padding : 20px 0; 
@@ -141,6 +161,9 @@
 				margin : 0 auto;
 				padding-left : 20px;
 				padding-right : 20px;
+				@media screen and (max-width: 510px) {
+					width : 100%;
+				}
 				textarea#event_textarea{
 					width : 100%;
 					height : 200px;
@@ -233,11 +256,6 @@
 				float : left;
 			}
 		}
-		.cleafix:after {
-		  content : "";
-		  display : table;
-		  clear : both;
-		}
 		#message_input{
 			height : 45px;
 			display : inline-block;
@@ -259,19 +277,3 @@
 		}
 	}
 }
-
-// video#bgvid {
-// 	position: fixed; 
-// 	right: 0; 
-// 	bottom: 0;
-// 	min-width: 100%; 
-// 	min-height: 100%;
-// 	width: auto; 
-// 	height: auto; 
-// 	z-index: -100;
-// 	background: url(../videos/campus.mp4) no-repeat;
-// 	background-size: cover;
-// }
-
-
-

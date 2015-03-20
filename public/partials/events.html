@@ -1,25 +1,17 @@
  <!-- CHAT MARKUP -->
 <div class="events_wrapper">
-	<header>
+	<header header-Background="images/students-walking.jpg" class="header_background">
 		<div class="header">
-			<h1><a href="#/home">LOGO</a></h1>
-			<p ng-repeat="id in admin">
-	<!-- 			{{id}}
-				{{ currentUser.facebook.displayName }}
-{{userId }}
-{{admin.id }} -->
-			</p>
+			<p>THIS WEEK'S EVENTS ARE YOUR FIRST STEPS TOWARD A BRIGHT FUTURE</p>
+			<p>Check events below and interact with other students,<br> professors, and staff in the comment area</p>
 		</div>
 	</header>
 
-	<div class="events">
-		<!-- {{ admin_loggedIn }} -->
-  			<!-- {{ currentUser.facebook.displayName }}  --><!-- <a href="#" ng-click="authObj.$unauth()">Logout</a> -->
-  		<div ng-if="userId == admin.id">
-
+	<article class="events">
+  		<section ng-if="userId == admin.id">
+  			<p>ADMIN, CLICK TO ADD EVENTS</p>
 	  		<p ng-show="notice" class="alert alert-danger animate" role="alert">{{ notice }}</p>
-	  		<p>ADD EVENT</p>
-			<form ng-submit= "addEvent(new_event)" class="events_form" style="margin: 0 auto; width: 500px;">
+			<form ng-submit= "addEvent(new_event)" class="events_form">
 				<select ng-model="new_event.day_selected" name="" class="" required>
 					<option value="">Select a day</option>
 					<option value="monday">monday</option>
@@ -37,51 +29,54 @@
 				<textarea style="display: block;" ng-model="new_event.description" name="description" id="event_textarea" required placeholder="Event Description"></textarea>
 				<input style="display: block;" type="submit">
 			</form>
-		</div> <!-- ng-if -->
-		
-		<div class="accordion events" >
+		</section> <!-- ng-if -->
+		<section class="accordion events" >
 		  <accordion close-others="oneAtATime">
 		    <accordion-group ng-repeat="event in events" class="animate event_day">
 				    <accordion-heading>
 					    <div event-Background="images/events{{$index + 1}}.jpg" class="event_background" >
 					    	<h2>{{ event.$id }}</h2>
-
-					    	<!-- <h1 style="color: white;">/events/{{ event.$id }}</h1> -->
 					    </div>
 				    </accordion-heading>
 				 <div class="accordion_open" ng-repeat="(id,info) in event">
-				 	 <!-- <h2 class="event_title">{{ info.event_title }}</h2> -->
 				    <div class="events_list">
 				    	<!-- <pre>{{$id|json}}</pre> -->
 				    	<p class="event_info"><span>{{ info.start_time }}</span> - <span>{{ info.end_time }}</span><span class="event_title"><a href="#/events/{{ event.$id }}/{{ id }}">{{ info.event_title }}</a></span></p>	
-				    	<!-- <p><span>{{ info.address }}</span></p> -->
 				    </div>
 			    </div>
 		    </accordion-group>
 		  </accordion>		
-		</div> <!-- accordion events -->
-
-
-		<h3>COMMENTS</h3>
-		<div class="comments">
-			<div class="user_comment">
-				<span ng-show="currentUser">		
-					<img class="fb_image" ng-src="{{ currentUser.facebook.cachedUserProfile.picture.data.url }}">
-				</span>
-				<input ng-model="msg" ng-keydown="addMessage($event)" type="text" class="form-control" id="message_input" placeholder="Add a comment">
-			</div>
-			<ul>
-				<li ng-repeat="msg in messages.slice().reverse()" class="clearfix animate">
-					<span ng-show="currentUser">
-						<a href="{{ msg.link }}" target="_blank">
-							<img class="fb_image" ng-src="{{ msg.picture }}">
-						</a>
+		</section> <!-- accordion events -->
+		<section class="comments_wrapper">
+			<h3>COMMENTS</h3>
+			<section class="comments">
+				<section class="user_comment">
+					<span ng-show="currentUser">		
+						<img class="fb_image" ng-src="{{ currentUser.facebook.cachedUserProfile.picture.data.url }}">
 					</span>
-				  <p class="user_name_msg">{{ msg.from }}<span class="date_time">{{ msg.date | date: 'h:mm:ss a | MM-dd-yy'}}</span></p>
-				  <p class="msg_body">{{ msg.body }}</p>
-				</li>
-			</ul>
+					<input ng-model="msg" ng-keydown="addMessage($event)" type="text" class="form-control" id="message_input" placeholder="Add a comment">
+				</section> <!-- class="user_comment" -->
+				<section>
+					<ul>
+						<li ng-repeat="msg in messages.slice().reverse()" class="clearfix animate">
+							<span ng-show="currentUser">
+								<a href="{{ msg.link }}" target="_blank">
+									<img class="fb_image" ng-src="{{ msg.picture }}">
+								</a>
+							</span>
+						  <p class="user_name_msg">{{ msg.from }}<span class="date_time">{{ msg.date | date: 'h:mm:ss a | MM-dd-yy'}}</span></p>
+						  <p class="msg_body">{{ msg.body }}</p>
+						</li>
+					</ul>
+				</section>
+			</section>	<!-- class="comments" -->
+		</section> <!-- class="comments_wrapper" -->
+	</article> <!-- .events -->
+	<!-- <footer>
+		<div class="footer">
+			<p>CollegeAppEvents@2015</p>
 		</div>
-	</div> <!-- .events -->
+	</footer>	 -->
 </div> <!-- events wrapper -->
+
 

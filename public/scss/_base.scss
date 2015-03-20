@@ -3,7 +3,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
-// ********HOME TEMPLATE*******
+/********HOME TEMPLATE*******/
 .header h1{
 	a{
 		text-decoration : none;
@@ -21,7 +21,7 @@ body {
 	}
 }
 
-// ********HOME PARTIAL*******
+/********HOME PARTIAL*******/
 .welcome{
 	font-size : 4.5em;
 	letter-spacing : 0.07em;
@@ -55,7 +55,7 @@ body {
 	}
 }
 
-// ********EVENTS PARTIAL*******
+/********EVENTS PARTIAL*******/
 .events_wrapper{
 	background : #AEB7E0;
 	@include SegoeUIRegular();
@@ -107,7 +107,50 @@ body {
 	}
 }
 
-
+/********USERS PARTIAL*******/
+.row.user_header{
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-bottom: 40px;
+	padding-top: 50px;
+	padding-left: 20px;
+	padding-right: 20px;
+	.personal_info{
+		color: $textColor;
+		padding-top: 80px;
+		div{
+			float: left;
+			padding-left: 10px;
+			padding-top: 32px;
+			position: relative;
+			p{
+				// position: absolute;
+				// bottom :0;
+				font-size: 20px;
+				margin-bottom: 10px;
+			}	
+		}
+	}
+	img{
+		width: 130px;
+		border: 5px solid $textColor;
+		border-radius: 5px;
+		float: left;
+	}
+}
+.user_profile_info{
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+    background: cover;
+    padding-right: 0;
+    padding-left: 0px;
+}
+.user_info_texts{
+	padding-left: 20px;
+	margin-right:0;
+	// padding-right: 20px;
+}
 
 
 
