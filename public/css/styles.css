@@ -126,7 +126,7 @@ body {
 .row.user_header .personal_info div {
   float: left;
   padding-left: 10px;
-  padding-top: 32px;
+  padding-top: 30px;
   position: relative;
 }
 .row.user_header .personal_info div p {
@@ -148,10 +148,39 @@ body {
   padding-right: 0;
   padding-left: 0px;
 }
+.user_profile_info i {
+  color: #ffffff;
+}
 
 .user_info_texts {
-  padding-left: 20px;
+  padding-left: 35px;
   margin-right: 0;
+}
+
+.social_icons {
+  padding-top: 228px;
+  padding-left: 234px;
+}
+.social_icons p {
+  float: left;
+  margin-right: 20px;
+}
+.social_icons p i {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.social_icons i.facebook:hover {
+  color: #3b5998;
+}
+.social_icons i.twitter:hover {
+  color: #4099FF;
+}
+.social_icons i.linkedin:hover {
+  color: #007bb6;
+}
+.social_icons i.envelope:hover {
+  color: #0072b1;
 }
 
 /********GLOBAL*******/

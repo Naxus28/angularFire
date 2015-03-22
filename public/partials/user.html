@@ -8,13 +8,14 @@
 					<p class="clearfix">{{user_profile_data.age}} years old</p>
 					<p class="clearfix">{{user_profile_data.major}}</p>
 					<p class="clearfix">{{user_profile_data.location}}</p>
+					<p>{{counter}}</p>
 				</div>
 			</div>
 			<div class="col-sm-6 social_icons">
-				<p><a href="{{user_profile_data.facebook}}" target="_blank">Facebook</a></p>
-				<p><a href="{{user_profile_data.twitter}}" target="_blank">Twitter</a></p>
-				<p><a href="{{user_profile_data.linkedin}}" target="_blank">Linkedin</a></p>
-				<p><a href="mailto:{{user_profile_data.email}}?Subject=Hello%20from%20CollegeApp!" target="_top">E-mail user</a></p>
+				<p><a href="{{user_profile_data.facebook}}" target="_blank"><i class="fa fa-facebook-official fa-4x facebook"></i></a></p>
+				<p><a href="{{user_profile_data.twitter}}" target="_blank"><i class="fa fa-twitter-square fa-4x twitter"></i></a></p>
+				<p><a href="{{user_profile_data.linkedin}}" target="_blank"><i class="fa fa-linkedin-square fa-4x linkedin"></i></a></p>
+				<p><a href="mailto:{{user_profile_data.email}}?Subject=Hello%20from%20CollegeApp!" target="_top"><i class="fa fa-envelope-o fa-4x envelope"></i></a></p>
 			</div>
 		</div>
 		<div class="row user_info_texts">
@@ -34,7 +35,7 @@
 
 
 	<section class="edit_profile">
-		<form ng-submit="addUserInfo(user_profile_info)">
+		<form  novalidate ng-submit="addUserInfo(user_profile_info)">
 			<input ng-model="user_profile_info.age" type="text" class="form-control add_event" required id="nameInput" placeholder="Your age">
 			<input ng-model="user_profile_info.major" type="text" class="form-control add_event" required id="nameInput" placeholder="Your major">
 			<input ng-model="user_profile_info.location" type="text" class="form-control add_event" required id="nameInput" placeholder="Original city and state (i.e. Orlando, FL)">

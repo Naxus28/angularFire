@@ -74,18 +74,24 @@ myApp.controller("eventsController", ["$scope", "$firebaseArray","$firebaseObjec
 				    console.error("Error:", error);
 				 });
 		
+		$rootScope.counter=0;
 
 		//============ADD MESSAGE METHOD============
 		$scope.addMessage = function(e) {
 		    //LISTEN FOR RETURN KEY
 		    if (e.keyCode === 13 && $scope.msg) {
 
+		    	$rootScope.counter++;
+
+		    	console.log('$scope.counter: ', $scope.counter);
 			  //============VARIABLES TO BE PUSHED TO THE MESSAGES ARRAY============
 			  var user = $rootScope.currentUser;
 			  // console.log("Logged in as:", $rootScope.currentUser.facebook.cachedUserProfile.id);
 			  var body = $scope.msg;
 			  //console.log(Firebase.ServerValue.TIMESTAMP);
 			  
+
+
 			  //============ADD TO FIREBASE============
 			  $scope.messages.$add({
 			    from: user.facebook.displayName,

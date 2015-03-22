@@ -121,7 +121,7 @@ body {
 		div{
 			float: left;
 			padding-left: 10px;
-			padding-top: 32px;
+			padding-top: 30px;
 			position: relative;
 			p{
 				// position: absolute;
@@ -145,13 +145,43 @@ body {
     background: cover;
     padding-right: 0;
     padding-left: 0px;
+    i{
+    	color: $textColor;
+    	// background: blue;
+    }
 }
 .user_info_texts{
-	padding-left: 20px;
+	padding-left: 35px;
 	margin-right:0;
 	// padding-right: 20px;
 }
-
+.social_icons{
+	padding-top: 228px;
+	padding-left:234px;
+	p{
+		float: left;
+		margin-right: 20px;
+		i{
+			-webkit-transition: all 0.3s ease;
+			-moz-transition: all 0.3s ease;
+			transition: all 0.3s ease;
+		}
+		// @include transition(all 0.3s ease);
+		
+	}
+	i.facebook:hover{
+		color: #3b5998;
+	}
+	i.twitter:hover{
+		color: #4099FF;
+	}
+	i.linkedin:hover{
+		color: #007bb6;
+	}
+	i.envelope:hover{
+		color: #0072b1;
+	}
+}
 
 
 
