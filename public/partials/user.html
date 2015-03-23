@@ -1,21 +1,33 @@
 <article class="user_profile">
+	<div class="overlay"></div>
 	<section class="user_profile_info container">
 		<div class="row user_header" users-Background="images/bookshelf.jpg">
 			<div class="col-sm-6 personal_info">
 				<h1>{{user.facebook.displayName}}</h1>
 				<a href="{{user.facebook.cachedUserProfile.link}}" target="_blank"><img src="{{user.facebook.cachedUserProfile.picture.data.url}}" alt="profile_picture"></a>
-				<div>
+				<div class="personal_info_data">
 					<p class="clearfix">{{user_profile_data.age}} years old</p>
 					<p class="clearfix">{{user_profile_data.major}}</p>
 					<p class="clearfix">{{user_profile_data.location}}</p>
-					<p>{{counter}}</p>
+				</div>
+				<div class="edit">
+					<p ng-click="userForm = ! userForm"> Edit Profile</p>
+				</div>
+				<div class="comments_made">
+					<p class="comment_paragraphs">Comments Made | {{user_profile_data.points}}</p>
+					<p class="comment_paragraphs">Points | {{user_profile_data.points / 2}}</p>	
 				</div>
 			</div>
-			<div class="col-sm-6 social_icons">
-				<p><a href="{{user_profile_data.facebook}}" target="_blank"><i class="fa fa-facebook-official fa-4x facebook"></i></a></p>
-				<p><a href="{{user_profile_data.twitter}}" target="_blank"><i class="fa fa-twitter-square fa-4x twitter"></i></a></p>
-				<p><a href="{{user_profile_data.linkedin}}" target="_blank"><i class="fa fa-linkedin-square fa-4x linkedin"></i></a></p>
-				<p><a href="mailto:{{user_profile_data.email}}?Subject=Hello%20from%20CollegeApp!" target="_top"><i class="fa fa-envelope-o fa-4x envelope"></i></a></p>
+			<div class="col-sm-6">
+				<div>
+					<p class="events_link"><a href="#/events">SEE EVENTS</a></p>
+				</div>
+				<div class="social_icons"> 
+					<p><a href="{{user_profile_data.facebook}}" target="_blank"><i class="fa fa-facebook-official fa-4x facebook"></i></a></p>
+					<p><a href="{{user_profile_data.twitter}}" target="_blank"><i class="fa fa-twitter-square fa-4x twitter"></i></a></p>
+					<p><a href="{{user_profile_data.linkedin}}" target="_blank"><i class="fa fa-linkedin-square fa-4x linkedin"></i></a></p>
+					<p><a href="mailto:{{user_profile_data.email}}?Subject=Hello%20from%20CollegeApp!" target="_top"><i class="fa fa-envelope-o fa-4x envelope"></i></a></p>
+				</div>
 			</div>
 		</div>
 		<div class="row user_info_texts">
@@ -32,9 +44,7 @@
 			</div>	
 		</div>
 	</section>
-
-
-	<section class="edit_profile">
+	<section class="edit_profile animate" ng-show="userForm">
 		<form  novalidate ng-submit="addUserInfo(user_profile_info)">
 			<input ng-model="user_profile_info.age" type="text" class="form-control add_event" required id="nameInput" placeholder="Your age">
 			<input ng-model="user_profile_info.major" type="text" class="form-control add_event" required id="nameInput" placeholder="Your major">
@@ -47,7 +57,6 @@
 			<textarea style="display: block;" ng-model="user_profile_info.about" class="user_textarea" required placeholder="About You"></textarea>
 			<input style="display: block;" type="submit">
 		</form>
-		<p><a href="#/events">EVENTS</a></p>
 	</section>	
 </article>
 <footer>

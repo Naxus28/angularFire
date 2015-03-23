@@ -136,7 +136,6 @@
 
 // ********EVENTS PARTIAL*******
 .events_wrapper{
-	// width: 100%;
 	padding-bottom : 50px;
 	header{
 		padding : 12%;
@@ -186,14 +185,19 @@
 				}
 			}
 		.event_day{
+			margin-top: 0px;
+
 			//bootstrap accordion classes
-			margin-bottom: 20px;
 			.panel-heading{
 				padding : 0;
 				margin : 0;
 				h2{
 					text-align : center;
 				}
+			}
+			.event_background{
+				padding-top: 100px;
+				padding-bottom: 100px;
 			}
 			.accordion_open{
 				padding : 10px;
@@ -276,4 +280,99 @@
 			// border-radius : 50%;
 		}
 	}
+}
+
+/********USERS PARTIAL*******/
+.row.user_header{
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-bottom: 40px;
+	padding-top: 50px;
+	padding-left: 20px;
+	padding-right: 20px;
+	.personal_info{
+		h1{
+			margin-top: 0px;
+		}
+		.personal_info_data{
+			float: left;
+			padding-left: 10px;
+			padding-top: 30px;
+			position: relative;
+			p{
+				font-size: 20px;
+				margin-bottom: 10px;
+				&:last-child{
+					margin-bottom: 	0px;
+				}
+			}	
+		}
+	}
+	img{
+		width: 130px;
+		float: left;
+	}
+	.comments_made{
+		padding-top: 100px;
+		clear: both;
+		width: 70%;
+		p.comment_paragraphs{
+			@include SegoeUIBold();
+			letter-spacing: 1.3px;
+			font-size: 1.8em;
+			color: white; 
+		}
+	}
+	.edit{
+		clear:both;
+		cursor: pointer;
+		p{
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+		
+	}
+}
+.user_profile_info{
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+    background: cover;
+    padding-right: 0;
+    padding-left: 0px;
+}
+.user_info_texts{
+	padding-left: 35px;
+	margin-right:0;
+}
+.social_icons{
+	padding-top: 178px;
+	padding-left:234px;
+	p{
+		float: left;
+		margin-right: 20px;
+	}
+}
+p.events_link{
+	text-align: center;
+	width: 44.5%;
+	padding: 20px; 
+	margin-left: 233px;
+	margin-top: 47px;
+	color: white; 
+	font-size: 2em; 
+	border: 1px solid white; 
+	border-radius: 10px; 
+}
+.edit_profile{
+	position: absolute;
+	top: 20%;
+	left: 30%;
+	z-index: 10;
+	width: 50%;
+	background: #ccc;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 20px black;
 }

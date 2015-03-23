@@ -38,7 +38,7 @@ myApp.controller("MyAuthCtrl", ["$scope","$rootScope","$firebaseAuth","$firebase
 				$scope.users_info.$loaded()
 					.then(function(data)
 					{
-						console.log($scope.users_info.name);
+						console.log($scope.users_info.user_name);
 						console.log(data);
 
 						if($scope.users_info.link===undefined){
@@ -68,9 +68,9 @@ myApp.controller("MyAuthCtrl", ["$scope","$rootScope","$firebaseAuth","$firebase
 						$location.path('/user/' + safeName);
 						
 						} 
+						//if user already registered--thus there is a user_name in the db
 						else if ($scope.users_info.user_name) 
 						{
-							// $scope.switch();
 							var name = $scope.users_info.user_name;
 							var safeName = name.replace(/ /g,"").toLowerCase();
 							$location.path('/user/' + safeName);

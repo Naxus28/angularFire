@@ -45,7 +45,13 @@ myApp.controller("eventsController", ["$scope", "$firebaseArray","$firebaseObjec
 
 				  	$scope.userId = $rootScope.currentUser.facebook.cachedUserProfile.id;
 				  	
-				  	// console.log('userid:', $scope.userId);
+				  	//console.log('userid:', $scope.userId);
+
+				  	var ref_user_points = new Firebase("https://incandescent-heat-4286.firebaseio.com/users/" +$scope.userId);
+
+					console.log("id",$scope.userId);
+					
+					$rootScope.user = $firebaseObject(ref_user_points);
 				  	// console.log("admin ID:", $scope.admin.id);
 
 				  	//check in the console if it is the admin that logged in
@@ -74,23 +80,28 @@ myApp.controller("eventsController", ["$scope", "$firebaseArray","$firebaseObjec
 				    console.error("Error:", error);
 				 });
 		
-		$rootScope.counter=0;
 
+		$scope.counter=1;
 		//============ADD MESSAGE METHOD============
 		$scope.addMessage = function(e) {
 		    //LISTEN FOR RETURN KEY
 		    if (e.keyCode === 13 && $scope.msg) {
 
-		    	$rootScope.counter++;
+	    	// console.log('$rootScope.counter ', $rootScope.counter);
+			//============VARIABLES TO BE PUSHED TO THE MESSAGES ARRAY============
+			var user = $rootScope.currentUser;
+			// console.log("Logged in as:", $rootScope.currentUser.facebook.cachedUserProfile.id);
+			var body = $scope.msg;
+			//console.log(Firebase.ServerValue.TIMESTAMP);
+			if(!$rootScope.user.points){
+				$rootScope.user.points = 0;
+			} 
+				
+			$rootScope.user.points = parseInt($rootScope.user.points) + parseInt($scope.counter);
 
-		    	console.log('$scope.counter: ', $scope.counter);
-			  //============VARIABLES TO BE PUSHED TO THE MESSAGES ARRAY============
-			  var user = $rootScope.currentUser;
-			  // console.log("Logged in as:", $rootScope.currentUser.facebook.cachedUserProfile.id);
-			  var body = $scope.msg;
-			  //console.log(Firebase.ServerValue.TIMESTAMP);
-			  
-
+			console.log('$scope.counter: ', $rootScope.user.points);
+			console.log('user ', $scope.userId);
+			$rootScope.user.$save();
 
 			  //============ADD TO FIREBASE============
 			  $scope.messages.$add({
@@ -110,6 +121,7 @@ myApp.controller("eventsController", ["$scope", "$firebaseArray","$firebaseObjec
 		//this allows angular to load the values of these objects' properties
 		$scope.new_event = {};
 		$scope.day_selected = {};
+
 
 		//============ADD EVENT METHOD============
 		$scope.addEvent = function(e) {

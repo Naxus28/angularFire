@@ -13,14 +13,12 @@ myApp.controller("usersController", ["$scope","$rootScope","$firebaseObject","$f
 		  	$scope.user = $rootScope.profileInfo;
 		  	console.log('$scope.user.facebook.cachedUserProfile.id:', $scope.user.facebook);
 
-		  	//firebase object
-		  		var ref_user = new Firebase("https://incandescent-heat-4286.firebaseio.com/users/" + $scope.user.facebook.cachedUserProfile.id);
-		  		$scope.user_profile_data = $firebaseObject(ref_user);
-		  		
-		  	
-		  	$scope.addUserInfo = function(e) {
-		  		// console.log($scope.user_profile_info.about);
+	  		//firebase object
+	  		var ref_user = new Firebase("https://incandescent-heat-4286.firebaseio.com/users/" + $scope.user.facebook.cachedUserProfile.id);
+	  		$scope.user_profile_data = $firebaseObject(ref_user);
+	  
 
+		  	$scope.addUserInfo = function(e) {
 		  		//build firebase object; create keys 'age', 'major', and 'about' and assign the values to whatever the user passed in the input field
 		  		$scope.user_profile_data.age = $scope.user_profile_info.age;
 		  		$scope.user_profile_data.major = $scope.user_profile_info.major;
