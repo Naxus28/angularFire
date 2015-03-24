@@ -6,12 +6,20 @@
 			<p>Check events below and interact with other students,<br> professors, and staff in the comment area</p>
 		</div>
 	</header>
+	<article>
+		<section class="quote">
+			<div>
+				<p>Education is the most powerful weapon <br> which you can use to change the world</p>
+				<span>Nelson Mandela</span>
+			</div>
+		</section>
+	</article>
 
 	<article class="events">
   		<section ng-if="userId == admin.id">
-  			<p>ADMIN, CLICK TO ADD EVENTS</p>
+  			<p class="create_event" ng-click="eventsForm = !eventsForm">ADMIN, CLICK TO ADD EVENTS</p>
 	  		<p ng-show="notice" class="alert alert-danger animate" role="alert">{{ notice }}</p>
-			<form ng-submit= "addEvent(new_event)" class="events_form">
+			<form ng-submit= "addEvent(new_event)" class="events_form" ng-show="eventsForm">
 				<select ng-model="new_event.day_selected" name="" class="" required>
 					<option value="">Select a day</option>
 					<option value="monday">monday</option>
@@ -30,7 +38,7 @@
 				<input style="display: block;" type="submit">
 			</form>
 		</section> <!-- ng-if -->
-		<section class="accordion events" >
+		<section class="accordion_events" >
 		  <accordion close-others="oneAtATime">
 		    <accordion-group ng-repeat="event in events" class="animate event_day">
 				    <accordion-heading>
@@ -72,11 +80,11 @@
 			</section>	<!-- class="comments" -->
 		</section> <!-- class="comments_wrapper" -->
 	</article> <!-- .events -->
-	<!-- <footer>
+	<footer>
 		<div class="footer">
 			<p>CollegeAppEvents@2015</p>
 		</div>
-	</footer>	 -->
+	</footer>	
 </div> <!-- events wrapper -->
 
 

@@ -3,7 +3,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
-/********HOME TEMPLATE*******/
+/********HOME PARTIAL*******/
 .header h1{
 	a{
 		text-decoration : none;
@@ -20,8 +20,6 @@ body {
 		font-style : oblique;
 	}
 }
-
-/********HOME PARTIAL*******/
 .welcome{
 	font-size : 4.5em;
 	letter-spacing : 0.07em;
@@ -32,7 +30,6 @@ body {
 .cta_text{
 	font-size : 2em;
 	color : $textColor;
-	// @include SegoeUISemiBold();
 }
 .cta{
 	border : none;
@@ -62,6 +59,24 @@ body {
 	h3{
 		color: $textColor;
 		@include SegoeUISemiBold();
+	}
+	.create_event{
+		cursor: pointer;
+		color: $textColor;
+		font-size: 1.5em;
+		text-align: center;
+	}
+	.quote{
+		div{
+			background: #7467E8;
+			p{
+				color: $textColor;
+				font-size: 3em;
+				text-transform: uppercase;
+				line-height: 45px;
+				letter-spacing: 1.5px;
+			}
+		}
 	}
 	.comments{
 		background: #f5f5f5;
@@ -155,6 +170,37 @@ p.events_link{
 .events_link:hover{
 	background: rgba(250,250,250, 0.2);
 }
+p.close_form{
+	color: #000;
+	cursor: pointer
+}
+.edit_profile{
+	background: rgba(133, 149, 219, 0.9);
+	border-radius: 10px;
+	box-shadow: 0px 0px 20px black;
+}
+.comments_notice{
+	p{
+		&:nth-child(1){
+			font-size: 1.7em;
+		}
+		&:nth-child(2){
+			font-size: 1.2em;
+		}
+	}	
+}
+.user_info_texts{
+	background : #AEB7E0;
+}
+
+.user_profile + footer{
+	background : #AEB7E0;
+	p{
+		color: black;
+	}
+}
+
+
 
 // .overlay {
 //   position: fixed;

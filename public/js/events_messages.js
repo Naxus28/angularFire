@@ -172,7 +172,7 @@ myApp.controller("eventsController", ["$scope", "$firebaseArray","$firebaseObjec
 			}
 			else
 			{
-				$scope.notice = "You cannot add more than 5 events. You may edit current events or delete them.";
+				$scope.notice = "You cannot add events for more than 5 days. You may edit current events or delete them.";
 			}
 			//============RESET INPUT FIELDS============
 			$scope.new_event.day_selected = "";

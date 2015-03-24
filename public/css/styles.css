@@ -3,7 +3,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/********HOME TEMPLATE*******/
+/********HOME PARTIAL*******/
 .header h1 a {
   text-decoration: none;
   color: #ffffff;
@@ -20,7 +20,6 @@ body {
   font-style: oblique;
 }
 
-/********HOME PARTIAL*******/
 .welcome {
   font-size: 4.5em;
   letter-spacing: 0.07em;
@@ -66,6 +65,22 @@ body {
   color: #ffffff;
   font-family: 'SegoeUILight', Arial, sans-serif;
   font-weight: 600;
+}
+.events_wrapper .create_event {
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 1.5em;
+  text-align: center;
+}
+.events_wrapper .quote div {
+  background: #7467E8;
+}
+.events_wrapper .quote div p {
+  color: #ffffff;
+  font-size: 3em;
+  text-transform: uppercase;
+  line-height: 45px;
+  letter-spacing: 1.5px;
 }
 .events_wrapper .comments {
   background: #f5f5f5;
@@ -158,6 +173,35 @@ p.events_link a {
 
 .events_link:hover {
   background: rgba(250, 250, 250, 0.2);
+}
+
+p.close_form {
+  color: #000;
+  cursor: pointer;
+}
+
+.edit_profile {
+  background: rgba(133, 149, 219, 0.9);
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px black;
+}
+
+.comments_notice p:nth-child(1) {
+  font-size: 1.7em;
+}
+.comments_notice p:nth-child(2) {
+  font-size: 1.2em;
+}
+
+.user_info_texts {
+  background: #AEB7E0;
+}
+
+.user_profile + footer {
+  background: #AEB7E0;
+}
+.user_profile + footer p {
+  color: black;
 }
 
 /********GLOBAL*******/
@@ -301,9 +345,6 @@ p.events_link a {
     padding: 10px 50px;
   }
 }
-.events_wrapper {
-  padding-bottom: 50px;
-}
 .events_wrapper header {
   padding: 12%;
 }
@@ -321,9 +362,24 @@ p.events_link a {
   font-weight: 400;
   font-size: 1.8em;
 }
+.events_wrapper .quote div {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.events_wrapper .quote div p {
+  text-align: center;
+}
+.events_wrapper .quote div span {
+  display: block;
+  text-align: right;
+  font-style: oblique;
+  width: 85.5%;
+  color: #ffffff;
+  font-size: 2em;
+}
 .events_wrapper .events {
   width: 100%;
-  padding: 20px 0;
+  padding: 0px;
 }
 .events_wrapper .events .events_form {
   width: 500px;
@@ -399,18 +455,25 @@ p.events_link a {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+.events_wrapper .accordion_events {
+  margin-top: 0px;
+  padding-top: 0px;
+}
 .events_wrapper h3 {
-  margin-left: 17.5%;
-  margin-bottom: 10px;
+  margin-left: 9%;
+  margin-bottom: 15px;
   padding-left: 20px;
   padding-right: 20px;
+}
+.events_wrapper .comments_wrapper {
+  margin-top: 100px;
 }
 .events_wrapper .comments {
   width: 80%;
   height: 500px;
   overflow: scroll;
   padding: 17px 17px 0px;
-  margin: 10px auto 20px;
+  margin: 10px auto 0px;
 }
 .events_wrapper .comments .user_comment {
   margin-bottom: 10px;
@@ -446,9 +509,15 @@ p.events_link a {
   float: left;
   margin-right: 10px;
 }
+.events_wrapper footer {
+  padding: 20px;
+}
+.events_wrapper footer .footer {
+  position: static;
+}
 
 /********USERS PARTIAL*******/
-.row.user_header {
+.user_profile .row.user_header {
   margin-left: 0px;
   margin-right: 0px;
   padding-bottom: 40px;
@@ -456,47 +525,46 @@ p.events_link a {
   padding-left: 20px;
   padding-right: 20px;
 }
-.row.user_header .personal_info h1 {
+.user_profile .row.user_header .personal_info h1 {
   margin-top: 0px;
 }
-.row.user_header .personal_info .personal_info_data {
+.user_profile .row.user_header .personal_info .personal_info_data {
   float: left;
   padding-left: 10px;
   padding-top: 30px;
   position: relative;
 }
-.row.user_header .personal_info .personal_info_data p {
+.user_profile .row.user_header .personal_info .personal_info_data p {
   font-size: 20px;
   margin-bottom: 10px;
 }
-.row.user_header .personal_info .personal_info_data p:last-child {
+.user_profile .row.user_header .personal_info .personal_info_data p:last-child {
   margin-bottom: 0px;
 }
-.row.user_header img {
+.user_profile .row.user_header img {
   width: 130px;
   float: left;
 }
-.row.user_header .comments_made {
+.user_profile .row.user_header .comments_made {
   padding-top: 100px;
   clear: both;
   width: 70%;
 }
-.row.user_header .comments_made p.comment_paragraphs {
+.user_profile .row.user_header .comments_made p.comment_paragraphs {
   font-family: 'SegoeUILight', Arial, sans-serif;
   font-weight: 700;
   letter-spacing: 1.3px;
   font-size: 1.8em;
   color: white;
 }
-.row.user_header .edit {
+.user_profile .row.user_header .edit {
   clear: both;
   cursor: pointer;
 }
-.row.user_header .edit p:hover {
+.user_profile .row.user_header .edit p:hover {
   text-decoration: underline;
 }
-
-.user_profile_info {
+.user_profile .user_profile_info {
   margin-left: 0px;
   margin-right: 0px;
   width: 100%;
@@ -504,22 +572,19 @@ p.events_link a {
   padding-right: 0;
   padding-left: 0px;
 }
-
-.user_info_texts {
+.user_profile .user_profile_info .user_info_texts {
   padding-left: 35px;
   margin-right: 0;
 }
-
-.social_icons {
+.user_profile .user_profile_info .social_icons {
   padding-top: 178px;
   padding-left: 234px;
 }
-.social_icons p {
+.user_profile .user_profile_info .social_icons p {
   float: left;
   margin-right: 20px;
 }
-
-p.events_link {
+.user_profile .user_profile_info p.events_link {
   text-align: center;
   width: 44.5%;
   padding: 20px;
@@ -530,17 +595,42 @@ p.events_link {
   border: 1px solid white;
   border-radius: 10px;
 }
-
-.edit_profile {
-  position: absolute;
-  top: 20%;
-  left: 30%;
+.user_profile .user_profile_info .user_info_texts {
+  padding-top: 20px;
+}
+.user_profile .edit_profile {
+  position: fixed;
+  top: 9%;
+  left: 25%;
   z-index: 10;
   width: 50%;
-  background: #ccc;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px black;
+}
+.user_profile .edit_profile p.close_form {
+  float: right;
+  color: #ffffff;
+}
+.user_profile .edit_profile input {
+  margin-bottom: 5px;
+}
+.user_profile .edit_profile textarea {
+  width: 100%;
+  max-width: 100%;
+  height: 100px;
+  max-height: 150px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+}
+.user_profile .edit_profile .form_button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+}
+
+.user_profile + footer {
+  padding: 20px;
+}
+.user_profile + footer .footer {
+  position: static;
 }
 
 @font-face {
@@ -569,6 +659,15 @@ p.events_link {
 /******combine both CSS classes together to avoid any CSS-specificity conflicts******/
 .reveal-animation.ng-enter.ng-enter-active {
   opacity: 1;
+}
+
+.events_form {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+
+.events_form.ng-hide {
+  opacity: 0;
 }
 
 .edit_profile {

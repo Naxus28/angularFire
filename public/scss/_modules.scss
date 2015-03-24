@@ -20,13 +20,18 @@
 .reveal-animation.ng-enter.ng-enter-active {
 	opacity: 1;
 }
-
+.events_form{
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+.events_form.ng-hide{
+   opacity:0;
+}
 
 .edit_profile {
   -webkit-transition:all linear 0.5s;
   transition:all linear 0.5s;
 }
-
 .edit_profile.ng-hide {
   opacity:0;
 }

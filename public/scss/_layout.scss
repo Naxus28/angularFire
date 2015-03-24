@@ -136,7 +136,6 @@
 
 // ********EVENTS PARTIAL*******
 .events_wrapper{
-	padding-bottom : 50px;
 	header{
 		padding : 12%;
 		p{
@@ -152,9 +151,26 @@
 			}
 		}
 	}
+	.quote{
+		div{
+			padding-top: 60px;
+			padding-bottom: 60px;
+			p{
+				text-align: center;
+			}
+			span{
+				display: block;
+				text-align: right;
+				font-style: oblique;
+				width: 85.5%;
+				color: $textColor;
+				font-size: 2em;
+			}
+		}
+	}
 	.events{
 		width : 100%; 
-		padding : 20px 0; 
+		padding : 0px; 
 		.events_form{
 				width : 500px;
 				margin : 0 auto;
@@ -231,18 +247,25 @@
 
 		}
 	}
+	.accordion_events{
+		margin-top: 0px;
+		padding-top: 0px;
+	}
 	h3{
-		margin-left : 17.5%;
-		margin-bottom : 10px;
+		margin-left : 9%;
+		margin-bottom : 15px;
 		padding-left : 20px;
 		padding-right : 20px;
+	}
+	.comments_wrapper{
+		margin-top: 100px;
 	}
 	.comments{
 		width : 80%;
 		height : 500px;
 		overflow : scroll;
 		padding : 17px 17px 0px;
-		margin : 10px auto 20px;
+		margin : 10px auto 0px;
 		.user_comment{
 			margin-bottom : 10px;
 			padding : 25px 15px 25px 0px;
@@ -280,99 +303,137 @@
 			// border-radius : 50%;
 		}
 	}
+
+	footer{
+		padding: 20px;
+		.footer{
+			position:static;
+			p{
+
+			}
+		}
+	}
 }
 
 /********USERS PARTIAL*******/
-.row.user_header{
-	margin-left: 0px;
-	margin-right: 0px;
-	padding-bottom: 40px;
-	padding-top: 50px;
-	padding-left: 20px;
-	padding-right: 20px;
-	.personal_info{
-		h1{
-			margin-top: 0px;
-		}
-		.personal_info_data{
-			float: left;
-			padding-left: 10px;
-			padding-top: 30px;
-			position: relative;
-			p{
-				font-size: 20px;
-				margin-bottom: 10px;
-				&:last-child{
-					margin-bottom: 	0px;
-				}
-			}	
-		}
-	}
-	img{
-		width: 130px;
-		float: left;
-	}
-	.comments_made{
-		padding-top: 100px;
-		clear: both;
-		width: 70%;
-		p.comment_paragraphs{
-			@include SegoeUIBold();
-			letter-spacing: 1.3px;
-			font-size: 1.8em;
-			color: white; 
-		}
-	}
-	.edit{
-		clear:both;
-		cursor: pointer;
-		p{
-			&:hover{
-				text-decoration: underline;
+.user_profile{
+	.row.user_header{
+		margin-left: 0px;
+		margin-right: 0px;
+		padding-bottom: 40px;
+		padding-top: 50px;
+		padding-left: 20px;
+		padding-right: 20px;
+		.personal_info{
+			h1{
+				margin-top: 0px;
+			}
+			.personal_info_data{
+				float: left;
+				padding-left: 10px;
+				padding-top: 30px;
+				position: relative;
+				p{
+					font-size: 20px;
+					margin-bottom: 10px;
+					&:last-child{
+						margin-bottom: 	0px;
+					}
+				}	
 			}
 		}
-		
+		img{
+			width: 130px;
+			float: left;
+		}
+		.comments_made{
+			padding-top: 100px;
+			clear: both;
+			width: 70%;
+			p.comment_paragraphs{
+				@include SegoeUIBold();
+				letter-spacing: 1.3px;
+				font-size: 1.8em;
+				color: white; 
+			}
+		}
+		.edit{
+			clear:both;
+			cursor: pointer;
+			p{
+				&:hover{
+					text-decoration: underline;
+				}
+			}
+			
+		}
+	}
+	.user_profile_info{
+	    margin-left: 0px;
+	    margin-right: 0px;
+	    width: 100%;
+	    background: cover;
+	    padding-right: 0;
+	    padding-left: 0px;
+	    .user_info_texts{
+	    	padding-left: 35px;
+	    	margin-right:0;
+	    }
+	    .social_icons{
+	    	padding-top: 178px;
+	    	padding-left:234px;
+	    	p{
+	    		float: left;
+	    		margin-right: 20px;
+	    	}
+	    }
+	    p.events_link{
+	    	text-align: center;
+	    	width: 44.5%;
+	    	padding: 20px; 
+	    	margin-left: 233px;
+	    	margin-top: 47px;
+	    	color: white; 
+	    	font-size: 2em; 
+	    	border: 1px solid white; 
+	    	border-radius: 10px; 
+	    }
+	    .user_info_texts{
+	    	padding-top: 20px;
+	    }
+	}
+	.edit_profile{
+		position: fixed;
+		top: 9%;
+		left: 25%;
+		z-index: 10;
+		width: 50%;
+		padding: 20px;
+		 p.close_form{
+	    	float: right;
+	    	color: $textColor;
+	    }
+		input{
+			margin-bottom: 5px;
+		}
+		textarea{
+			width: 100%;
+			max-width: 100%;
+			height: 100px;
+			max-height: 150px;
+			margin-bottom: 5px;
+			padding-left: 10px;
+		}
+		.form_button{
+			padding: 10px 20px;
+			font-size: 1.2em;
+		}
 	}
 }
-.user_profile_info{
-    margin-left: 0px;
-    margin-right: 0px;
-    width: 100%;
-    background: cover;
-    padding-right: 0;
-    padding-left: 0px;
-}
-.user_info_texts{
-	padding-left: 35px;
-	margin-right:0;
-}
-.social_icons{
-	padding-top: 178px;
-	padding-left:234px;
-	p{
-		float: left;
-		margin-right: 20px;
-	}
-}
-p.events_link{
-	text-align: center;
-	width: 44.5%;
-	padding: 20px; 
-	margin-left: 233px;
-	margin-top: 47px;
-	color: white; 
-	font-size: 2em; 
-	border: 1px solid white; 
-	border-radius: 10px; 
-}
-.edit_profile{
-	position: absolute;
-	top: 20%;
-	left: 30%;
-	z-index: 10;
-	width: 50%;
-	background: #ccc;
+.user_profile + footer{
 	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0px 0px 20px black;
+	.footer{
+		position: static;
+	}
 }
+

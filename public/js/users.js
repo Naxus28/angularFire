@@ -30,9 +30,10 @@ myApp.controller("usersController", ["$scope","$rootScope","$firebaseObject","$f
 		  		$scope.user_profile_data.lookingForwardTo = $scope.user_profile_info.lookingForwardTo;
 		  		$scope.user_profile_data.about = $scope.user_profile_info.about;
 
+		  		//save to firebase--this does not work for updating bc when we save it will save the whole object all over again. If we change name in the input but leave the other input blank, angular will send an object with a name and a bunch of empty strings that will overwrite the current db object.
 		  		$scope.user_profile_data.$save();
 		  		
-		  		//clear input field
+		  		//clear input fields
 		  		$scope.user_profile_info.age = "";
 		  		$scope.user_profile_info.major = "";
 		  		$scope.user_profile_info.location = "";
