@@ -16,25 +16,10 @@ myApp.controller("usersController", ["$scope","$rootScope","$firebaseObject","$f
 	  		//firebase object
 	  		var ref_user = new Firebase("https://incandescent-heat-4286.firebaseio.com/users/" + $scope.user.facebook.cachedUserProfile.id);
 	  		$scope.user_profile_data = $firebaseObject(ref_user);
-	  
-
+	 
 		  	$scope.addUserInfo = function(e) {
-		  		//build firebase object; create keys 'age', 'major', and 'about' and assign the values to whatever the user passed in the input field
-		  		$scope.user_profile_data.age = $scope.user_profile_info.age;
-		  		$scope.user_profile_data.major = $scope.user_profile_info.major;
-		  		$scope.user_profile_data.location = $scope.user_profile_info.location;
-		  		$scope.user_profile_data.facebook = $scope.user_profile_info.facebook;
-		  		$scope.user_profile_data.twitter = $scope.user_profile_info.twitter;
-		  		$scope.user_profile_data.linkedin = $scope.user_profile_info.linkedin;
-		  		$scope.user_profile_data.email = $scope.user_profile_info.email;
-		  		$scope.user_profile_data.lookingForwardTo = $scope.user_profile_info.lookingForwardTo;
-		  		$scope.user_profile_data.about = $scope.user_profile_info.about;
-
-		  		//save to firebase--this does not work for updating bc when we save it will save the whole object all over again. If we change name in the input but leave the other input blank, angular will send an object with a name and a bunch of empty strings that will overwrite the current db object.
+		  		//save to firebase
 		  		$scope.user_profile_data.$save();
-		  		
-		  		//clear input fields
-		  		$scope.user_profile_info = {};
 		  	}
 
 		  }//if (authData) 

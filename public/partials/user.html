@@ -51,16 +51,16 @@
 	</section>
 	<section class="edit_profile animate" ng-show="userForm">
 		<p class="close_form" ng-click="userForm = !userForm"><i class="fa fa-times-circle-o fa-2x"></i></p>
-		<form  novalidate ng-submit="addUserInfo(user_profile_info)">
-			<input ng-model="user_profile_info.age" type="text" class="form-control add_event" required id="nameInput" placeholder="Your age (i.e. 21)">
-			<input ng-model="user_profile_info.major" type="text" class="form-control add_event" required id="nameInput" placeholder="Your major">
-			<input ng-model="user_profile_info.location" type="text" class="form-control add_event" required id="nameInput" placeholder="Original city and state (i.e. Orlando, FL)">
-			<input ng-model="user_profile_info.facebook" type="text" class="form-control add_event" required id="nameInput" placeholder="Facebook link">
-			<input ng-model="user_profile_info.twitter" type="text" class="form-control add_event" required id="nameInput" placeholder="Twitter link">
-			<input ng-model="user_profile_info.linkedin" type="text" class="form-control add_event" required id="nameInput" placeholder="Linkedin link">
-			<input ng-model="user_profile_info.email" type="text" class="form-control add_event" required id="nameInput" placeholder="Your email">
-			<textarea style="display: block;" ng-model="user_profile_info.about" class="user_textarea" required placeholder="About You"></textarea>
-			<textarea style="display: block;" ng-model="user_profile_info.lookingForwardTo" class="user_textarea" required placeholder="I'm looking forward to"></textarea>
+		<form  novalidate ng-submit="addUserInfo(user_profile_data)">
+			<input ng-model="user_profile_data.age" type="text" class="form-control add_event" required id="nameInput" placeholder="Your age (i.e. 21)">
+			<input ng-model="user_profile_data.major" type="text" class="form-control add_event" required id="nameInput" placeholder="Your major">
+			<input ng-model="user_profile_data.location" type="text" class="form-control add_event" required id="nameInput" placeholder="Original city and state (i.e. Orlando, FL)">
+			<input ng-model="user_profile_data.facebook" type="text" class="form-control add_event" required id="nameInput" placeholder="Facebook link">
+			<input ng-model="user_profile_data.twitter" type="text" class="form-control add_event" required id="nameInput" placeholder="Twitter link">
+			<input ng-model="user_profile_data.linkedin" type="text" class="form-control add_event" required id="nameInput" placeholder="Linkedin link">
+			<input ng-model="user_profile_data.email" type="text" class="form-control add_event" required id="nameInput" placeholder="Your email">
+			<textarea style="display: block;" ng-model="user_profile_data.about" class="user_textarea" required placeholder="About You"></textarea>
+			<textarea style="display: block;" ng-model="user_profile_data.lookingForwardTo" class="user_textarea" required placeholder="I'm looking forward to"></textarea>
 			<input style="display: block;" type="submit" ng-click="userForm = !userForm" class="form_button">
 		</form>
 	</section>	
