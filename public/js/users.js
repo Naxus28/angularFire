@@ -34,15 +34,7 @@ myApp.controller("usersController", ["$scope","$rootScope","$firebaseObject","$f
 		  		$scope.user_profile_data.$save();
 		  		
 		  		//clear input fields
-		  		$scope.user_profile_info.age = "";
-		  		$scope.user_profile_info.major = "";
-		  		$scope.user_profile_info.location = "";
-		  		$scope.user_profile_info.facebook = "";
-		  		$scope.user_profile_info.twitter = "";
-		  		$scope.user_profile_info.linkedin = "";
-		  		$scope.user_profile_info.email = "";
-		  		$scope.user_profile_info.lookingForwardTo = "";
-		  		$scope.user_profile_info.about = "";
+		  		$scope.user_profile_info = {};
 		  	}
 
 		  }//if (authData) 

@@ -129,8 +129,6 @@ myApp.controller("eventsController", ["$scope", "$firebaseArray","$firebaseObjec
 		    // if (e.keyCode === 13) {
 
 		    console.log('in the add function');
-			
-			   
 			console.log('day selected', $scope.new_event.day_selected);
 			  
 			var ref_two = new Firebase("https://incandescent-heat-4286.firebaseio.com/events/" + $scope.new_event.day_selected);
@@ -140,49 +138,22 @@ myApp.controller("eventsController", ["$scope", "$firebaseArray","$firebaseObjec
 
 			// console.log($scope.new_event);
 			console.log($scope.day_events);
-
-			// var day = $scope.new_event.day_selected;
-			//============VARIABLES TO BE PUSHED TO THE EVENTS ARRAY============
-			var event_title = $scope.new_event.event_title;
-			var start_time = $scope.new_event.start_time;
-			var end_time = $scope.new_event.end_time;
-			var presenter = $scope.new_event.presenter;
-			var description = $scope.new_event.description;
-			var address = $scope.new_event.address;
-			var map = $scope.new_event.map;
-
 			console.log('new event obj: ', $scope.new_event);
 			
-
-
-			  //============ADD DATA TO FIREBASE============ 
-			  //only allow users to create 5 events - Mon through Fri
-			  //display notice if they try to enter more events
+		     //============ADD DATA TO FIREBASE============ 
+		     //only allow users to create 5 events - Mon through Fri
+		     //display notice if they try to enter more events
 			if($scope.day_events.length <= 4)
 			{
-				$scope.day_events.$add({
-					event_title: event_title,
-					start_time: start_time,
-					end_time: end_time,
-					presenter: presenter,
-					address: address,
-					map: map,
-					description: description
-				});
+				$scope.day_events.$add($scope.new_event);
 			}
 			else
 			{
 				$scope.notice = "You cannot add events for more than 5 days. You may edit current events or delete them.";
 			}
 			//============RESET INPUT FIELDS============
-			$scope.new_event.day_selected = "";
-			$scope.new_event.event_title = "";
-			$scope.new_event.start_time = "";
-			$scope.new_event.end_time = "";
-			$scope.new_event.presenter = "";
-			$scope.new_event.address = "";
-			$scope.new_event.map = "";
-			$scope.new_event.description = "";
+			$scope.new_event = {};
+
 			// }//if statement
 		}//function(e)
 	}//controller function
