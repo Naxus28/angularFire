@@ -33,22 +33,22 @@ myApp.controller("MyAuthCtrl", ["$scope","$rootScope","$firebaseAuth","$firebase
 				var ref_user = new Firebase("https://incandescent-heat-4286.firebaseio.com/users/" + user.facebook.cachedUserProfile.id);
 				
 				//create object '$scope.users_info' for the firebase created above that we wil use to store the info we want
-				$scope.users_info = $firebaseObject(ref_user);
+				$rootScope.users_info = $firebaseObject(ref_user);
 
-				$scope.users_info.$loaded()
+				$rootScope.users_info.$loaded()
 					.then(function(data)
 					{
-						console.log($scope.users_info.user_name);
+						console.log($rootScope.users_info.user_name);
 						console.log(data);
 
-						if($scope.users_info.link===undefined){
-						console.log($scope.users_info);
+						if($rootScope.users_info.link===undefined){
+						console.log($rootScope.users_info);
 
 						//create $scope.users_info properties, assigning the facebook info to each of the new properties we create--obs: left hand side is created on the fly and assigned a value from the facebook object we created above
-						$scope.users_info.user_name = user.facebook.displayName;
-						$scope.users_info.picture = user.facebook.cachedUserProfile.picture.data.url;
-						$scope.users_info.link = user.facebook.cachedUserProfile.link;
-						$scope.users_info.date = Firebase.ServerValue.TIMESTAMP;
+						$rootScope.users_info.user_name = user.facebook.displayName;
+						$rootScope.users_info.picture = user.facebook.cachedUserProfile.picture.data.url;
+						$rootScope.users_info.link = user.facebook.cachedUserProfile.link;
+						$rootScope.users_info.date = Firebase.ServerValue.TIMESTAMP;
 
 						$rootScope.profileInfo = $scope.users_info;
 
@@ -60,7 +60,9 @@ myApp.controller("MyAuthCtrl", ["$scope","$rootScope","$firebaseAuth","$firebase
 						$scope.users_info.$save();
 
 						//grab username to add to the url: /user/username
-						var name = $scope.users_info.user_name;
+						var name = $rootScope.users_info.user_name;
+
+						console.log('$rootScope.users_info.user_name:', $rootScope.users_info.user_name);
 
 						//trims out white space from the name that comes from facebook
 						//then puts everything to lowercase
@@ -69,9 +71,9 @@ myApp.controller("MyAuthCtrl", ["$scope","$rootScope","$firebaseAuth","$firebase
 						
 						} 
 						//if user already registered--thus there is a user_name in the db
-						else if ($scope.users_info.user_name) 
+						else if ($rootScope.users_info.user_name) 
 						{
-							var name = $scope.users_info.user_name;
+							var name = $rootScope.users_info.user_name;
 							var safeName = name.replace(/ /g,"").toLowerCase();
 							$location.path('/user/' + safeName);
 							console.log('switch else');

@@ -22,6 +22,11 @@ myApp.config(function($routeProvider){
 		controller:"usersController",
 		templateUrl:"partials/user.html"
 	})
+	.when("/user/visit/:userVisit",
+	{
+		controller:"usersVisitController",
+		templateUrl:"partials/user.html"
+	})
 	.when("/events/:eventDay/:eventDetails",
 	{
 		templateUrl:"partials/event_day.html",

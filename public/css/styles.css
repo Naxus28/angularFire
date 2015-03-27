@@ -61,6 +61,57 @@ body {
   font-family: 'SegoeUILight', Arial, sans-serif;
   font-weight: 400;
 }
+.events_wrapper header div p {
+  font-family: 'SegoeUILight', Arial, sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+}
+.events_wrapper header div:nth-child(1) p {
+  font-size: 1em;
+}
+.events_wrapper header div:nth-child(2) p:nth-child(1) {
+  font-size: 4em;
+  text-align: center;
+}
+.events_wrapper header div:nth-child(2) p:nth-child(2) {
+  font-size: 1.8em;
+  text-align: center;
+  font-family: 'SegoeUILight', Arial, sans-serif;
+  font-weight: 400;
+}
+.events_wrapper header .profile_icon span i {
+  color: #ffffff;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+.events_wrapper header .profile_icon span i:hover {
+  color: #AEB7E0;
+}
+.events_wrapper header i.fa-plus {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+.events_wrapper header i.fa-plus:hover {
+  color: #AEB7E0;
+}
+.events_wrapper .add_event_link {
+  background: #AEB7E0;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.events_wrapper .add_event_link:hover {
+  background: #8B92B2;
+}
+.events_wrapper .add_event_link p {
+  color: #ffffff;
+  text-transform: uppercase;
+}
 .events_wrapper h3 {
   color: #ffffff;
   font-family: 'SegoeUILight', Arial, sans-serif;
@@ -72,15 +123,24 @@ body {
   font-size: 1.5em;
   text-align: center;
 }
-.events_wrapper .quote div {
-  background: #7467E8;
-}
 .events_wrapper .quote div p {
   color: #ffffff;
   font-size: 3em;
   text-transform: uppercase;
   line-height: 45px;
   letter-spacing: 1.5px;
+}
+.events_wrapper .form_events_wrapper {
+  background: rgba(133, 149, 219, 0.95);
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px black;
+}
+.events_wrapper .form_events_wrapper p {
+  text-align: right;
+}
+.events_wrapper .form_events_wrapper p i {
+  color: #ffffff;
+  cursor: pointer;
 }
 .events_wrapper .comments {
   background: #f5f5f5;
@@ -127,38 +187,56 @@ body {
   font-size: 2em;
 }
 
-/********USERS PARTIAL*******/
-.row.user_header .personal_info {
+/********USER PARTIAL*******/
+.user_profile {
+  background: #AEB7E0;
+}
+.user_profile .logo {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.user_profile .logo:hover {
+  color: #AEB7E0;
+}
+.user_profile .row.user_header .personal_info {
   color: #ffffff;
 }
-.row.user_header img {
+.user_profile .row.user_header img.profile_picture {
   border: 5px solid #ffffff;
   border-radius: 5px;
 }
-
-.user_profile_info i {
+.user_profile .row.user_header .edit p {
+  padding-top: 5px;
+}
+.user_profile .row.user_header .comments_made p.comment_paragraphs {
+  font-family: 'SegoeUILight', Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  font-size: 1.3em;
+  color: white;
+}
+.user_profile .user_profile_info i {
   color: #ffffff;
 }
-
-.social_icons p i {
+.user_profile .social_icons p i {
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-.social_icons i.facebook:hover {
+.user_profile .social_icons i.facebook:hover {
   color: #3b5998;
 }
-.social_icons i.twitter:hover {
+.user_profile .social_icons i.twitter:hover {
   color: #4099FF;
 }
-.social_icons i.linkedin:hover {
+.user_profile .social_icons i.linkedin:hover {
   color: #007bb6;
 }
-.social_icons i.envelope:hover {
+.user_profile .social_icons i.envelope:hover {
   color: #0072b1;
 }
-
-p.events_link {
+.user_profile p.events_link {
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -166,49 +244,72 @@ p.events_link {
   font-weight: 700;
   cursor: pointer;
 }
-p.events_link a {
+.user_profile p.events_link a {
   text-decoration: none;
   color: #ffffff;
 }
-
-.events_link:hover {
-  background: rgba(250, 250, 250, 0.2);
+.user_profile .events_link:hover {
+  background: rgba(174, 183, 224, 0.7);
 }
-
-p.close_form {
+.user_profile p.close_form {
   color: #000;
   cursor: pointer;
 }
-
-.edit_profile {
+.user_profile .edit_profile {
   background: rgba(133, 149, 219, 0.9);
   border-radius: 10px;
   box-shadow: 0px 0px 20px black;
 }
-
-.comments_notice p:nth-child(1) {
+.user_profile .comments_notice p:nth-child(1) {
   font-size: 1.7em;
 }
-.comments_notice p:nth-child(2) {
+.user_profile .comments_notice p:nth-child(2) {
   font-size: 1.2em;
 }
-
-.user_info_texts {
+.user_profile .user_info_texts {
   background: #AEB7E0;
 }
-
-.user_profile + footer {
+.user_profile .user_profile + footer {
   background: #AEB7E0;
 }
-.user_profile + footer p {
+.user_profile .user_profile + footer p {
   color: black;
 }
 
+/********DETAILS PARTIAL*******/
+.event_details_wrapper {
+  background: #AEB7E0;
+}
+.event_details_wrapper .event_details h1 {
+  text-transform: uppercase;
+}
+.event_details_wrapper .event_details p {
+  font-size: 1.8em;
+}
+.event_details_wrapper .event_details p span {
+  text-transform: uppercase;
+  font-size: 1.1em;
+}
+
+.event_details_wrapper + footer {
+  background: #AEB7E0;
+}
+
 /********GLOBAL*******/
+html, body {
+  height: 100%;
+}
+
 .clearfix:after {
   content: "";
   display: table;
   clear: both;
+}
+
+.container_wrapper {
+  min-height: 100%;
+  height: 100%;
+  position: relative;
 }
 
 /********HOME TEMPLATE*******/
@@ -346,21 +447,34 @@ p.close_form {
   }
 }
 .events_wrapper header {
-  padding: 12%;
+  position: relative;
+  padding: 4% 12% 12%;
 }
-.events_wrapper header p {
-  text-align: center;
+.events_wrapper header .icons {
+  margin-bottom: 4%;
+}
+.events_wrapper header .icons i {
   color: #ffffff;
-  font-family: 'SegoeUILight', Arial, sans-serif;
-  font-weight: 700;
 }
-.events_wrapper header p:nth-child(1) {
-  font-size: 4em;
+.events_wrapper header .icons i.fa-plus {
+  text-align: right;
+  position: absolute;
+  top: 70px;
+  right: 12%;
+  margin-right: 20px;
 }
-.events_wrapper header p:nth-child(2) {
-  font-family: 'SegoeUILight', Arial, sans-serif;
-  font-weight: 400;
-  font-size: 1.8em;
+.events_wrapper header .icons .profile_icon {
+  text-align: center;
+}
+.events_wrapper header .add_event_link {
+  position: absolute;
+  top: 88px;
+  right: 125px;
+  padding: 20px 5px;
+  width: 100px;
+}
+.events_wrapper header .add_event_link p {
+  margin-bottom: 0;
 }
 .events_wrapper .quote div {
   padding-top: 60px;
@@ -380,6 +494,14 @@ p.close_form {
 .events_wrapper .events {
   width: 100%;
   padding: 0px;
+}
+.events_wrapper .events .form_events_wrapper {
+  position: fixed;
+  top: 2%;
+  left: 25%;
+  z-index: 100;
+  width: 50%;
+  padding: 20px;
 }
 .events_wrapper .events .events_form {
   width: 500px;
@@ -410,7 +532,7 @@ p.close_form {
 }
 .events_wrapper .events .events_form input.add_event {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .events_wrapper .events .event_day {
   margin-top: 0px;
@@ -517,13 +639,23 @@ p.close_form {
 }
 
 /********USERS PARTIAL*******/
+.user_profile {
+  min-height: 100%;
+  position: relative;
+}
+.user_profile .logo {
+  text-align: center;
+}
 .user_profile .row.user_header {
   margin-left: 0px;
   margin-right: 0px;
   padding-bottom: 40px;
-  padding-top: 50px;
+  padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
+}
+.user_profile .row.user_header .personal_info {
+  margin-top: 100px;
 }
 .user_profile .row.user_header .personal_info h1 {
   margin-top: 0px;
@@ -541,7 +673,7 @@ p.close_form {
 .user_profile .row.user_header .personal_info .personal_info_data p:last-child {
   margin-bottom: 0px;
 }
-.user_profile .row.user_header img {
+.user_profile .row.user_header img.profile_picture {
   width: 130px;
   float: left;
 }
@@ -549,13 +681,6 @@ p.close_form {
   padding-top: 100px;
   clear: both;
   width: 70%;
-}
-.user_profile .row.user_header .comments_made p.comment_paragraphs {
-  font-family: 'SegoeUILight', Arial, sans-serif;
-  font-weight: 700;
-  letter-spacing: 1.3px;
-  font-size: 1.8em;
-  color: white;
 }
 .user_profile .row.user_header .edit {
   clear: both;
@@ -626,11 +751,43 @@ p.close_form {
   font-size: 1.2em;
 }
 
-.user_profile + footer {
+.user_profile footer {
   padding: 20px;
 }
-.user_profile + footer .footer {
+.user_profile footer .footer {
+  position: absolute;
+  bottom: 60;
+  left: 0;
+  width: 100%;
+}
+
+/********DETAILS PARTIAL*******/
+.event_details_wrapper {
+  min-height: 100%;
+}
+.event_details_wrapper .event_details {
+  height: 100%;
+  width: 50%;
+  margin: 0 auto;
+}
+.event_details_wrapper .event_details h1 {
+  margin-top: 0px;
+  margin-bottom: 40px;
+  padding-top: 40px;
+  text-align: center;
+}
+.event_details_wrapper .event_details p {
+  margin-bottom: 30px;
+}
+
+.event_details_wrapper article + footer {
+  padding: 20px;
+}
+.event_details_wrapper article + footer .footer {
   position: static;
+}
+.event_details_wrapper article + footer .footer p {
+  color: black;
 }
 
 @font-face {
@@ -659,6 +816,24 @@ p.close_form {
 /******combine both CSS classes together to avoid any CSS-specificity conflicts******/
 .reveal-animation.ng-enter.ng-enter-active {
   opacity: 1;
+}
+
+.add_event_link {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+
+.add_event_link.ng-hide {
+  opacity: 0;
+}
+
+.form_events_wrapper {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+
+.form_events_wrapper.ng-hide {
+  opacity: 0;
 }
 
 .events_form {

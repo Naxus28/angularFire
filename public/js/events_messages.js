@@ -30,7 +30,7 @@ myApp.controller("eventsController", ["$scope", "$firebaseArray","$firebaseObjec
 			.then(function(data) {
 				//get data loaded and assign it to $scope.admin
 			   $scope.admin = data; 
-			    // console.log("admin ID:", $scope.admin.id);
+			    console.log("admin ID:", $scope.admin.id);
 			    
 			   //inside the parenthesis on the right hand side of this assignment operator we can put any firebase object
 			   $scope.authObj = $firebaseAuth(firebase_ref);
@@ -44,6 +44,12 @@ myApp.controller("eventsController", ["$scope", "$firebaseArray","$firebaseObjec
 				  	$rootScope.currentUser = authData;
 
 				  	$scope.userId = $rootScope.currentUser.facebook.cachedUserProfile.id;
+
+				  	$scope.userName = $rootScope.currentUser.facebook.displayName;
+
+				  	$scope.safeUserame = $scope.userName.replace(/ /g,"").toLowerCase();
+
+				  	console.log('$scope.safeUserame: ', $scope.safeUserame);
 				  	
 				  	//console.log('userid:', $scope.userId);
 
@@ -86,32 +92,31 @@ myApp.controller("eventsController", ["$scope", "$firebaseArray","$firebaseObjec
 		$scope.addMessage = function(e) {
 		    //LISTEN FOR RETURN KEY
 		    if (e.keyCode === 13 && $scope.msg) {
-
-	    	// console.log('$rootScope.counter ', $rootScope.counter);
+			
 			//============VARIABLES TO BE PUSHED TO THE MESSAGES ARRAY============
 			var user = $rootScope.currentUser;
-			// console.log("Logged in as:", $rootScope.currentUser.facebook.cachedUserProfile.id);
 			var body = $scope.msg;
-			//console.log(Firebase.ServerValue.TIMESTAMP);
+
+			//============CONDITION TO ADD POINTS TO USERS WHEN A COMMENT IS MADE============
 			if(!$rootScope.user.points){
 				$rootScope.user.points = 0;
 			} 
-				
 			$rootScope.user.points = parseInt($rootScope.user.points) + parseInt($scope.counter);
 
-			console.log('$scope.counter: ', $rootScope.user.points);
-			console.log('user ', $scope.userId);
+			//============SAVE POINTS TO USER OBJECT============
 			$rootScope.user.$save();
 
-			  //============ADD TO FIREBASE============
-			  $scope.messages.$add({
-			    from: user.facebook.displayName,
-			    body: body,
-			    picture: user.facebook.cachedUserProfile.picture.data.url,
-			    facebook_id: user.facebook.cachedUserProfile.id,
-			    link: user.facebook.cachedUserProfile.link,
-			    date: Firebase.ServerValue.TIMESTAMP
-			  });
+			console.log('$scope.safeUserame', $scope.safeUserame);
+			//============ADD TO FIREBASE============
+			$scope.messages.$add({
+				safename: $scope.safeUserame,
+				from: user.facebook.displayName,
+				body: body,
+				picture: user.facebook.cachedUserProfile.picture.data.url,
+				facebook_id: user.facebook.cachedUserProfile.id,
+				link: user.facebook.cachedUserProfile.link,
+				date: Firebase.ServerValue.TIMESTAMP
+			});
 		      //============RESET INPUT FIELD============
 		      $scope.msg = "";
 			}//if statement
@@ -125,9 +130,6 @@ myApp.controller("eventsController", ["$scope", "$firebaseArray","$firebaseObjec
 
 		//============ADD EVENT METHOD============
 		$scope.addEvent = function(e) {
-		    //LISTEN FOR RETURN KEY
-		    // if (e.keyCode === 13) {
-
 		    console.log('in the add function');
 			console.log('day selected', $scope.new_event.day_selected);
 			  
@@ -153,8 +155,6 @@ myApp.controller("eventsController", ["$scope", "$firebaseArray","$firebaseObjec
 			}
 			//============RESET INPUT FIELDS============
 			$scope.new_event = {};
-
-			// }//if statement
 		}//function(e)
 	}//controller function
 ]);//events controller

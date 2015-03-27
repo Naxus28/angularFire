@@ -20,6 +20,24 @@
 .reveal-animation.ng-enter.ng-enter-active {
 	opacity: 1;
 }
+
+.add_event_link{
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+.add_event_link.ng-hide{
+   opacity:0;
+}
+
+.form_events_wrapper{
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+.form_events_wrapper.ng-hide{
+  opacity:0;
+}
+
+
 .events_form{
   -webkit-transition:all linear 0.5s;
   transition:all linear 0.5s;

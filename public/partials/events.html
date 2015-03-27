@@ -1,6 +1,17 @@
  <!-- CHAT MARKUP -->
 <div class="events_wrapper">
 	<header header-Background="images/students-walking.jpg" class="header_background">
+		<div class="icons">
+			<p class="profile_icon">
+				<span > <!-- class="profile_icon" -->
+					<a href="#/user/{{ safeUserame }}"><i class="logo fa fa-graduation-cap fa-4x"></i></a>
+				</span>
+			</p>	
+			<span ng-if="admin_loggedIn" class="user_icon"> 
+				<i class="fa fa-plus fa-2x" ng-click="$parent.eventsForm = !eventsForm"><span>EVENTS</span></i>
+			</span>
+			<!-- <a href="#/user/{{safeUserame}}" title="user profile"><i class="fa fa-user fa-2x"></i></a> -->
+		</div>
 		<div class="header">
 			<p>THIS WEEK'S EVENTS ARE YOUR FIRST STEPS TOWARD A BRIGHT FUTURE</p>
 			<p>Check events below and interact with other students,<br> professors, and staff in the comment area</p>
@@ -14,12 +25,11 @@
 			</div>
 		</section>
 	</article>
-
 	<article class="events">
-  		<section ng-if="userId == admin.id">
-  			<p class="create_event" ng-click="eventsForm = !eventsForm">ADMIN, CLICK TO ADD EVENTS</p>
+  		<section  class="form_events_wrapper" ng-show="eventsForm">
+  			<p class="close_form" ng-click="eventsForm = !eventsForm"><i class="fa fa-times-circle-o fa-2x"></i></p>
 	  		<p ng-show="notice" class="alert alert-danger animate" role="alert">{{ notice }}</p>
-			<form ng-submit= "addEvent(new_event)" class="events_form" ng-show="eventsForm">
+			<form ng-submit= "addEvent(new_event)" class="events_form">
 				<select ng-model="new_event.day_selected" name="" class="" required>
 					<option value="">Select a day</option>
 					<option value="monday">monday</option>
@@ -29,20 +39,21 @@
 					<option value="friday">friday</option>
 				</select>
 				<input ng-model="new_event.event_title" type="text" class="form-control add_event" required id="nameInput" placeholder="Event Title">
+				<input ng-model="new_event.day" type="text" class="form-control add_event" required id="nameInput" placeholder="Day of the month">
 				<input ng-model="new_event.start_time" type="text" class="form-control add_event" required id="nameInput" placeholder="Starts at (i.e. 10 a.m.)">
 				<input ng-model="new_event.end_time" type="text" class="form-control add_event" required id="nameInput" placeholder="Ends at (i.e. 11 a.m.)">
 				<input ng-model="new_event.presenter" type="text" class="form-control add_event" required id="nameInput" placeholder="Presenter(s)">
 				<input ng-model="new_event.address" type="text" class="form-control add_event" required id="nameInput" placeholder="Address">
 				<input ng-model="new_event.map" type="text" class="form-control add_event" required id="nameInput" placeholder="Map url">
 				<textarea style="display: block;" ng-model="new_event.description" name="description" id="event_textarea" required placeholder="Event Description"></textarea>
-				<input style="display: block;" type="submit">
+				<input style="display: block;" type="submit" ng-click="eventsForm = !eventsForm">
 			</form>
 		</section> <!-- ng-if -->
 		<section class="accordion_events" >
 		  <accordion close-others="oneAtATime">
 		    <accordion-group ng-repeat="event in events" class="animate event_day">
 				    <accordion-heading>
-					    <div event-Background="images/events{{$index + 1}}.jpg" class="event_background" >
+					    <div event-Background="images/events_overlay{{$index + 1}}.jpg" class="event_background" >
 					    	<h2>{{ event.$id }}</h2>
 					    </div>
 				    </accordion-heading>
@@ -68,7 +79,7 @@
 					<ul>
 						<li ng-repeat="msg in messages.slice().reverse()" class="clearfix animate">
 							<span ng-show="currentUser">
-								<a href="{{ msg.link }}" target="_blank">
+								<a href="#/user/visit/{{msg.facebook_id}}" >
 									<img class="fb_image" ng-src="{{ msg.picture }}">
 								</a>
 							</span>

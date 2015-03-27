@@ -56,6 +56,60 @@ body {
 .events_wrapper{
 	background : #AEB7E0;
 	@include SegoeUIRegular();
+	header{
+			div{
+				p{
+					@include SegoeUIBold();
+					color: $textColor;
+				}
+				&:nth-child(1){
+					p{
+						font-size: 1em;	
+						// text-align: center;
+					}
+				}
+				&:nth-child(2){
+					p{
+						&:nth-child(1){
+							font-size: 4em;	
+							text-align: center;
+						}
+						&:nth-child(2){
+							font-size: 1.8em;
+							text-align: center;
+							@include SegoeUIRegular();
+						}	
+					}
+				}
+			}	
+			.profile_icon span i{
+				color: $textColor;
+				@include transition;
+				cursor: pointer;
+				&:hover{
+					color: #AEB7E0;
+				}
+			}
+			i.fa-plus{
+				@include transition;
+				cursor: pointer;
+				&:hover{
+					color: #AEB7E0;
+				}
+			}
+		}
+		.add_event_link{
+			background: #AEB7E0;
+			cursor: pointer;
+			@include transition;
+			&:hover{
+				background: #8B92B2;
+			}
+			p{
+				color: $textColor;
+				text-transform: uppercase;
+			}
+		}
 	h3{
 		color: $textColor;
 		@include SegoeUISemiBold();
@@ -68,7 +122,7 @@ body {
 	}
 	.quote{
 		div{
-			background: #7467E8;
+			// background: #7467E8;
 			p{
 				color: $textColor;
 				font-size: 3em;
@@ -78,12 +132,24 @@ body {
 			}
 		}
 	}
+	.form_events_wrapper{
+		background: rgba(133, 149, 219, 0.95);
+		border-radius: 10px;
+		box-shadow: 0px 0px 20px black;
+		p{
+			text-align: right;
+			i{
+				color: $textColor;
+				cursor: pointer;
+			}
+		}
+	}
 	.comments{
 		background: #f5f5f5;
 		border-radius : 10px; 
 		li{
 			list-style-type : none;
-		}
+		}	
 	}
 	.user_name_msg{
 		@include SegoeUISemiBold();
@@ -122,110 +188,124 @@ body {
 	}
 }
 
-/********USERS PARTIAL*******/
-.row.user_header{
-	.personal_info{
-		color: $textColor;
-	}
-	img{
-		border: 5px solid $textColor;
-		border-radius: 5px;
-	}
-}
-.user_profile_info{
-    i{
-    	color: $textColor;
-    }
-}
-.social_icons{
-	p{
-		i{
-			-webkit-transition: all 0.3s ease;
-			-moz-transition: all 0.3s ease;
-			transition: all 0.3s ease;
-		}
-	}
-	i.facebook:hover{
-		color: #3b5998;
-	}
-	i.twitter:hover{
-		color: #4099FF;
-	}
-	i.linkedin:hover{
-		color: #007bb6;
-	}
-	i.envelope:hover{
-		color: #0072b1;
-	}
-}
-p.events_link{
-	@include transition;
-	@include SegoeUIBold();
-	cursor: pointer;
-	a{
-		text-decoration: none;
-		color: $textColor;
-	}
-}
-.events_link:hover{
-	background: rgba(250,250,250, 0.2);
-}
-p.close_form{
-	color: #000;
-	cursor: pointer
-}
-.edit_profile{
-	background: rgba(133, 149, 219, 0.9);
-	border-radius: 10px;
-	box-shadow: 0px 0px 20px black;
-}
-.comments_notice{
-	p{
-		&:nth-child(1){
-			font-size: 1.7em;
-		}
-		&:nth-child(2){
-			font-size: 1.2em;
-		}
-	}	
-}
-.user_info_texts{
+/********USER PARTIAL*******/
+.user_profile{
 	background : #AEB7E0;
-}
+	.logo{
+		@include transition;
+		&:hover{
+			color: #AEB7E0;
+		}
+	}
+	.row.user_header{
+		.personal_info{
+			color: $textColor;
+		}
+		img.profile_picture{
+			border: 5px solid $textColor;
+			border-radius: 5px;
+		}
+		.edit{
+			p{
+				padding-top: 5px;
+			}
+		}
+		.comments_made{
+			p.comment_paragraphs{
+				@include SegoeUIBold();
+				letter-spacing: 1.3px;
+				font-size: 1.3em;
+				color: white; 
+			}
+		}
+	}
+	.user_profile_info{
+	    i{
+	    	color: $textColor;
+	    }
+	}
+	.social_icons{
+		p{
+			i{
+				-webkit-transition: all 0.3s ease;
+				-moz-transition: all 0.3s ease;
+				transition: all 0.3s ease;
+			}
+		}
+		i.facebook:hover{
+			color: #3b5998;
+		}
+		i.twitter:hover{
+			color: #4099FF;
+		}
+		i.linkedin:hover{
+			color: #007bb6;
+		}
+		i.envelope:hover{
+			color: #0072b1;
+		}
+	}
+	p.events_link{
+		@include transition;
+		@include SegoeUIBold();
+		cursor: pointer;
+		a{
+			text-decoration: none;
+			color: $textColor;
+		}
+	}
+	.events_link:hover{
+		background: rgba(174, 183, 224, 0.7);
+	}
+	p.close_form{
+		color: #000;
+		cursor: pointer;
+	}
+	.edit_profile{
+		background: rgba(133, 149, 219, 0.9);
+		border-radius: 10px;
+		box-shadow: 0px 0px 20px black;
+	}
+	.comments_notice{
+		p{
+			&:nth-child(1){
+				font-size: 1.7em;
+			}
+			&:nth-child(2){
+				font-size: 1.2em;
+			}
+		}	
+	}
+	.user_info_texts{
+		background : #AEB7E0;
+	}
 
-.user_profile + footer{
-	background : #AEB7E0;
-	p{
-		color: black;
+	.user_profile + footer{
+		background : #AEB7E0;
+		p{
+			color: black;
+		}
 	}
 }
 
 
-
-// .overlay {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   height: 100%;
-//   width: 100%;
-//   z-index: 5;
-//   background-color: rgba(0,0,0,0.6);
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/********DETAILS PARTIAL*******/
+.event_details_wrapper{
+	background : #AEB7E0;
+	.event_details{
+		h1{
+			text-transform: uppercase;
+		}
+		p{
+			font-size: 1.8em;
+			span{
+					text-transform: uppercase;
+					font-size: 1.1em;
+				}
+		}
+	}
+}
+.event_details_wrapper + footer{
+	background : #AEB7E0; 
+}
 

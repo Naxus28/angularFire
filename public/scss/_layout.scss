@@ -1,10 +1,17 @@
 /********GLOBAL*******/
+html, body{
+	height:100%;
+}
 .clearfix:after {
   content : "";
   display : table;
   clear : both;
 }
-
+.container_wrapper{
+	min-height: 100%;
+	height: 100%;
+	position: relative;
+}
 /********HOME TEMPLATE*******/
 .home_wrapper{
 	height : 100%;
@@ -137,17 +144,32 @@
 // ********EVENTS PARTIAL*******
 .events_wrapper{
 	header{
-		padding : 12%;
-		p{
-			text-align: center;
-			color: $textColor;
-			@include SegoeUIBold();
-			&:nth-child(1){
-				font-size: 4em;	
+		position: relative;
+		padding : 4% 12% 12%;
+		.icons {
+			margin-bottom: 4%;
+			i{
+				color: $textColor;
 			}
-			&:nth-child(2){
-				@include SegoeUIRegular();
-				font-size: 1.8em;
+			i.fa-plus{
+				text-align: right;
+				position: absolute;
+				top: 70px;
+				right: 12%;
+				margin-right: 20px;
+			}
+			.profile_icon{
+				text-align: center;
+			}
+		}
+		.add_event_link{
+			position: absolute;
+			top: 88px;
+			right: 125px;
+			padding: 20px 5px;
+			width: 100px;
+			p{
+				margin-bottom: 0;
 			}
 		}
 	}
@@ -171,6 +193,14 @@
 	.events{
 		width : 100%; 
 		padding : 0px; 
+		.form_events_wrapper{
+			position: fixed;
+			top: 2%;
+			left: 25%;
+			z-index: 100;
+			width: 50%;
+			padding: 20px;
+		}
 		.events_form{
 				width : 500px;
 				margin : 0 auto;
@@ -197,7 +227,7 @@
 				}
 				input.add_event{
 					width : 100%;
-					margin-bottom : 20px;
+					margin-bottom : 10px;
 				}
 			}
 		.event_day{
@@ -303,7 +333,6 @@
 			// border-radius : 50%;
 		}
 	}
-
 	footer{
 		padding: 20px;
 		.footer{
@@ -315,16 +344,23 @@
 	}
 }
 
+
 /********USERS PARTIAL*******/
 .user_profile{
+	min-height: 100%;
+	position: relative;
+	.logo{
+		text-align: center;
+	}
 	.row.user_header{
 		margin-left: 0px;
 		margin-right: 0px;
 		padding-bottom: 40px;
-		padding-top: 50px;
+		padding-top: 30px;
 		padding-left: 20px;
 		padding-right: 20px;
 		.personal_info{
+			margin-top: 100px;
 			h1{
 				margin-top: 0px;
 			}
@@ -342,7 +378,7 @@
 				}	
 			}
 		}
-		img{
+		img.profile_picture{
 			width: 130px;
 			float: left;
 		}
@@ -350,12 +386,6 @@
 			padding-top: 100px;
 			clear: both;
 			width: 70%;
-			p.comment_paragraphs{
-				@include SegoeUIBold();
-				letter-spacing: 1.3px;
-				font-size: 1.8em;
-				color: white; 
-			}
 		}
 		.edit{
 			clear:both;
@@ -365,7 +395,6 @@
 					text-decoration: underline;
 				}
 			}
-			
 		}
 	}
 	.user_profile_info{
@@ -430,10 +459,41 @@
 		}
 	}
 }
-.user_profile + footer{
+.user_profile footer{
+	padding: 20px;
+	.footer{
+		position: absolute;
+		bottom: 60;
+		left: 0;
+		width: 100%;
+	}
+}
+
+/********DETAILS PARTIAL*******/
+.event_details_wrapper{
+	min-height: 100%;
+	.event_details{
+		height: 100%;
+		width: 50%;
+		margin: 0 auto;
+		h1{
+			margin-top: 0px;
+			margin-bottom: 40px;
+			padding-top: 40px;
+			text-align: center;
+		}
+		p{
+			margin-bottom: 30px;
+		}
+	}
+}
+.event_details_wrapper article + footer{
 	padding: 20px;
 	.footer{
 		position: static;
+		p{
+			color: black;
+		}
 	}
 }
 

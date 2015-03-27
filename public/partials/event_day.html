@@ -1,14 +1,20 @@
-<article>
-	<p>{{ event_details.event_title }}</p>
-	<p>{{ event_details.presenter }}</p>
-	<p>{{ event_details.start_time }} - {{ event_details.end_time }} </p>
-	<p>{{ event_details.description }}</p>
-	<p>{{ event_details.address }}</p>
-	<p>{{ event_details.map }}</p>
-	<p><a href="#/events">back to events</a></p>
-</article>
-<footer>
-	<div class="footer">
-		<p>CollegeAppEvents@2015</p>
-	</div>
-</footer>	
+<div class="event_details_wrapper">
+	<article>
+		<section class="event_details">
+			<h1>{{ event_details.event_title }}</h1>
+			<p><span><i class="fa fa-calendar"></i> Day:</span> {{ event_details.day }}</p>
+			<p><span><i class="fa fa-user"></i> Presenter(s):</span> {{ event_details.presenter }}</p>
+			<p><span> <i class="fa fa-clock-o"></i> Time:</span> {{ event_details.start_time }} - {{ event_details.end_time }} </p>
+			<p><span><i class="fa fa-file-text-o"></i> Description: </span> {{ event_details.description }}</p>
+			<p><span><i class="fa fa-compass"></i> Address:</span> {{ event_details.address }}</p>
+			<p><span><i class="fa fa-map-marker"></i> Map:</span> {{ event_details.map }}</p>
+			<p><a href="#/events"><i class="fa fa-long-arrow-left"></i> back to events</a></p>	
+		</section>
+	</article>
+	<footer>
+		<div class="footer">
+			<p>CollegeAppEvents@2015</p>
+		</div>
+	</footer>	
+</div>
+

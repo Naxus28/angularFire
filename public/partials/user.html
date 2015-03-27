@@ -1,72 +1,79 @@
-<article class="user_profile" style="position: relative;">
-	<section class="user_profile_info container">
-		<div class="row user_header" users-Background="images/university_overlay.jpg">
-			<div class="col-sm-6 personal_info">
-				<h1>{{user.facebook.displayName}}</h1>
-				<a href="{{user.facebook.cachedUserProfile.link}}" target="_blank"><img src="{{user.facebook.cachedUserProfile.picture.data.url}}" alt="profile_picture"></a>
-				<div class="personal_info_data">
-					<p class="clearfix">{{user_profile_data.age}} years old</p>
-					<p class="clearfix">{{user_profile_data.major}}</p>
-					<p class="clearfix">{{user_profile_data.location}}</p>
-				</div>
-				<div class="edit">
-					<p ng-click="userForm = !userForm"> Edit Profile</p>
-				</div>
-				<div class="comments_made">
-					<div ng-if="!user_profile_data.points" class="comments_notice">
-						<p>You haven't made any comments yet</p>
-						<p>Start making comments to get extra credit</p>
+<div class="user_profile" style="position: relative;">
+	<article>
+		<section class="user_profile_info container">
+			<div class="row user_header" users-Background="images/university_overlay.jpg">
+				<a href="#/user/{{ userName }}"><i class="logo fa fa-graduation-cap fa-4x"></i></a>
+				<!-- <pre>{{userName}}</pre> -->
+				<!-- <pre>{{user}}</pre> -->
+				<div class="col-md-6 col-sm-1 personal_info">					
+					<!-- <h1>{{user.facebook.displayName}}</h1> -->
+					<!-- <a class="logo" href="#/home"><img ng-src="images/logo.png"/></a> -->
+					
+					<a href="{{user_profile_data.link}}" target="_blank"><img class="profile_picture" ng-src="{{user_profile_data.picture}}" alt="profile_picture"></a>	
+					<div class="personal_info_data">
+						<p class="clearfix">{{user_profile_data.age}}</p>
+						<p class="clearfix">{{user_profile_data.major}}</p>
+						<p class="clearfix">{{user_profile_data.location}}</p>
 					</div>
-					<div ng-if="user_profile_data.points>=1">
-						<p class="comment_paragraphs">Comments Made | {{user_profile_data.points}}</p>
-						<p class="comment_paragraphs">Extra Credit | {{user_profile_data.points / 2}}</p>	
+					<div class="edit" ng-if="user.facebook.id==user_profile_data.$id"> <!-- ng-if="user.facebook.id==user_profile_data.$id" -->
+						<p ng-click="$parent.userForm = !userForm"> Edit Profile</p>
+					</div>
+					<div class="comments_made">
+						<div ng-if="!user_profile_data.points" class="comments_notice">
+							<p>You haven't made any comments yet</p>
+							<p>Start making comments to get extra credit</p>
+						</div>
+						<div ng-if="user_profile_data.points>=1">
+							<p class="comment_paragraphs">Comments Made | {{user_profile_data.points}}</p>
+							<p class="comment_paragraphs">Extra Credit | {{user_profile_data.points / 2}}</p>	
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div>
+						<p class="events_link"><a href="#/events">EVENTS</a></p>
+					</div>
+					<div class="social_icons"> 
+						<p><a href="{{user_profile_data.facebook}}" target="_blank"><i class="fa fa-facebook-official fa-4x facebook"></i></a></p>
+						<p><a href="{{user_profile_data.twitter}}" target="_blank"><i class="fa fa-twitter-square fa-4x twitter"></i></a></p>
+						<p><a href="{{user_profile_data.linkedin}}" target="_blank"><i class="fa fa-linkedin-square fa-4x linkedin"></i></a></p>
+						<p><a href="mailto:{{user_profile_data.email}}?Subject=Hello%20from%20CollegeApp!" target="_top"><i class="fa fa-envelope-o fa-4x envelope"></i></a></p>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-6">
-				<div>
-					<p class="events_link"><a href="#/events">SEE EVENTS</a></p>
+			<div class="row user_info_texts">
+				<div class="col-md-4 col-sm-1">
+					<h2>About</h2>
+					<p>{{user_profile_data.about}}</p>
 				</div>
-				<div class="social_icons"> 
-					<p><a href="{{user_profile_data.facebook}}" target="_blank"><i class="fa fa-facebook-official fa-4x facebook"></i></a></p>
-					<p><a href="{{user_profile_data.twitter}}" target="_blank"><i class="fa fa-twitter-square fa-4x twitter"></i></a></p>
-					<p><a href="{{user_profile_data.linkedin}}" target="_blank"><i class="fa fa-linkedin-square fa-4x linkedin"></i></a></p>
-					<p><a href="mailto:{{user_profile_data.email}}?Subject=Hello%20from%20CollegeApp!" target="_top"><i class="fa fa-envelope-o fa-4x envelope"></i></a></p>
+				<div class="col-md-4 col-sm-1">
+					<h2>Looking forward to</h2>
+					<p>{{user_profile_data.lookingForwardTo}}</p>	
 				</div>
+				<div class="col-md-4 col-sm-1">
+					<h2>Friends</h2>
+				</div>	
 			</div>
+		</section>
+		<section class="edit_profile animate" ng-show="userForm">
+			<p class="close_form" ng-click="userForm = !userForm"><i class="fa fa-times-circle-o fa-2x"></i></p>
+			<form  novalidate ng-submit="addUserInfo(user_profile_data)">
+				<input ng-model="user_profile_data.age" type="text" class="form-control add_event" required id="nameInput" placeholder="Your age (i.e. 21 years old)">
+				<input ng-model="user_profile_data.major" type="text" class="form-control add_event" required id="nameInput" placeholder="Your major (i.e. Engeneering Major)">
+				<input ng-model="user_profile_data.location" type="text" class="form-control add_event" required id="nameInput" placeholder="Original city and state (i.e. Orlando, FL)">
+				<input ng-model="user_profile_data.facebook" type="text" class="form-control add_event" required id="nameInput" placeholder="Facebook link">
+				<input ng-model="user_profile_data.twitter" type="text" class="form-control add_event" required id="nameInput" placeholder="Twitter link">
+				<input ng-model="user_profile_data.linkedin" type="text" class="form-control add_event" required id="nameInput" placeholder="Linkedin link">
+				<input ng-model="user_profile_data.email" type="text" class="form-control add_event" required id="nameInput" placeholder="Your email">
+				<textarea style="display: block;" ng-model="user_profile_data.about" class="user_textarea" required placeholder="About You"></textarea>
+				<textarea style="display: block;" ng-model="user_profile_data.lookingForwardTo" class="user_textarea" required placeholder="I'm looking forward to"></textarea>
+				<input style="display: block;" type="submit" ng-click="userForm = !userForm" class="form_button">
+			</form>
+		</section>	
+	</article>
+	<footer>
+		<div class="footer">
+			<p>CollegeAppEvents@2015</p>
 		</div>
-		<div class="row user_info_texts">
-			<div class="col-md-4 col-sm-1">
-				<h2>About</h2>
-				<p>{{user_profile_data.lookingForwardTo}}</p>
-			</div>
-			<div class="col-md-4 col-sm-1">
-				<h2>Looking forward to</h2>
-				<p>{{user_profile_data.about}}</p>
-			</div>
-			<div class="col-md-4 col-sm-1">
-				<h2>Friends</h2>
-			</div>	
-		</div>
-	</section>
-	<section class="edit_profile animate" ng-show="userForm">
-		<p class="close_form" ng-click="userForm = !userForm"><i class="fa fa-times-circle-o fa-2x"></i></p>
-		<form  novalidate ng-submit="addUserInfo(user_profile_data)">
-			<input ng-model="user_profile_data.age" type="text" class="form-control add_event" required id="nameInput" placeholder="Your age (i.e. 21)">
-			<input ng-model="user_profile_data.major" type="text" class="form-control add_event" required id="nameInput" placeholder="Your major">
-			<input ng-model="user_profile_data.location" type="text" class="form-control add_event" required id="nameInput" placeholder="Original city and state (i.e. Orlando, FL)">
-			<input ng-model="user_profile_data.facebook" type="text" class="form-control add_event" required id="nameInput" placeholder="Facebook link">
-			<input ng-model="user_profile_data.twitter" type="text" class="form-control add_event" required id="nameInput" placeholder="Twitter link">
-			<input ng-model="user_profile_data.linkedin" type="text" class="form-control add_event" required id="nameInput" placeholder="Linkedin link">
-			<input ng-model="user_profile_data.email" type="text" class="form-control add_event" required id="nameInput" placeholder="Your email">
-			<textarea style="display: block;" ng-model="user_profile_data.about" class="user_textarea" required placeholder="About You"></textarea>
-			<textarea style="display: block;" ng-model="user_profile_data.lookingForwardTo" class="user_textarea" required placeholder="I'm looking forward to"></textarea>
-			<input style="display: block;" type="submit" ng-click="userForm = !userForm" class="form_button">
-		</form>
-	</section>	
-</article>
-<footer>
-	<div class="footer">
-		<p>CollegeAppEvents@2015</p>
-	</div>
-</footer>	
+	</footer>	
+</div>
