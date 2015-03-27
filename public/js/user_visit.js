@@ -1,17 +1,19 @@
 
-myApp.controller("usersVisitController",["$scope","$rootScope","$routeParams", "$firebaseObject","$firebaseAuth", function($scope, $rootScope, $routeParams, $firebaseObject, $firebaseAuth){
+myApp.controller("usersVisitController",["$scope","$rootScope","$routeParams", "$firebaseObject","$firebaseAuth","$firebaseArray", function($scope, $rootScope, $routeParams, $firebaseObject, $firebaseAuth, $firebaseArray){
 	
 	//============CREATE FIREBASE OBJECT BASED ON THE DAY AND EVENT ID, WHICH IDENTIFIES THE SPECIFIC EVENT WITHIN THAT DAY  i.e. URL: https://incandescent-heat-4286.firebaseio.com/events/monday/id-1; https://incandescent-heat-4286.firebaseio.com/events/monday/id-2, etc ============
+	
+	//visited user profile object
 	var ref_visits = new Firebase("https://incandescent-heat-4286.firebaseio.com/users/" + $routeParams.userVisit);
 	$scope.user_profile_data = $firebaseObject(ref_visits);
 
-	var firebase_url = "https://incandescent-heat-4286.firebaseio.com";
-	var firebase_ref = new Firebase(firebase_url);
+	//logged in user profile object
+	var firebase_ref = new Firebase("https://incandescent-heat-4286.firebaseio.com");
 	$scope.authObj = $firebaseAuth(firebase_ref);
 
 
 	console.log('$scope.user_profile_data: ', $scope.user_profile_data);
-	console.log('$scope.user: ', $scope.authObj);
+	// console.log('$scope.user: ', $scope.authObj);
 
 	//authObj.$onAuth makes data persistent on this controller
 		$scope.authObj.$onAuth(function(authData) {
@@ -23,18 +25,39 @@ myApp.controller("usersVisitController",["$scope","$rootScope","$routeParams", "
 		  	console.log('authData: ', $rootScope.user.facebook.displayName);
 		  	$rootScope.userName = $rootScope.user.facebook.displayName.replace(/ /g,"").toLowerCase()
 		  	
-		  	$rootScope.user.$loaded().
-			  	then(function(data){
-			  		console.log('data: ',$rootScope.user.facebook.displayName.replace(/ /g,"").toLowerCase());
+		  	// authData.$loaded().
+			  // 	then(function(data){
+			  		// console.log('data: ',$rootScope.user.facebook.displayName.replace(/ /g,"").toLowerCase());
 			  		$rootScope.userName = $rootScope.user.facebook.displayName.replace(/ /g,"").toLowerCase();
-		  		});
-		  	// console.log('$scope.user.facebook.cachedUserProfile.id:', $scope.user.facebook.id);
+		  		// });
 
-	  		//firebase object
-	  	//  	var ref_user = new Firebase("https://incandescent-heat-4286.firebaseio.com/users/" + $scope.user.facebook.cachedUserProfile.id);
-	  	// 	$scope.user_profile_data = $firebaseObject(ref_user);
+	  		
+	  		console.log($scope.user.facebook.cachedUserProfile.id);
+	  		//============ADD EVENT METHOD============
+		$scope.addFriend = function(e) {
+		    console.log('in the add function');
+			// console.log('day selected', $scope.new_event.day_selected);
+			  
+			var ref_user = new Firebase("https://incandescent-heat-4286.firebaseio.com/users/" + $scope.user.facebook.cachedUserProfile.id + "/friends");
+	  		$scope.user_friends = $firebaseArray(ref_user);
 
-	 		//  console.log('$scope.user_profile_data: ', $scope.user_profile_data.$id);
+	  		$scope.user_friends.name = $scope.user_profile_data.user_name;
+	  		$scope.user_friends.picture = $scope.user_profile_data.picture;
+	  		$scope.user_friends.link_id = $scope.user_profile_data.$id;
+
+
+	  		console.log('$scope.user_friends:', $scope.user_friends);
+	  		
+	  		  
+	  		$scope.user_friends.$add($scope.user_friends);
+			//============RESET INPUT FIELDS============
+			$scope.new_event = {};
+		}//function(e)
+	  	 	
+
+	 		 // console.log('$scope.user: ', $scope.user);
+
+
 
 	 		
 	 		// console.log('$scope.user_profile_data: ', $scope.user_profile_data);

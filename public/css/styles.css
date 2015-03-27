@@ -654,8 +654,12 @@ html, body {
   padding-left: 20px;
   padding-right: 20px;
 }
+.user_profile .row.user_header .grad_cap_icon {
+  text-align: center;
+  margin-top: 20px;
+}
 .user_profile .row.user_header .personal_info {
-  margin-top: 100px;
+  margin-top: 30px;
 }
 .user_profile .row.user_header .personal_info h1 {
   margin-top: 0px;
@@ -677,8 +681,12 @@ html, body {
   width: 130px;
   float: left;
 }
+.user_profile .row.user_header div.add_friend {
+  padding-top: 10px;
+  clear: both;
+}
 .user_profile .row.user_header .comments_made {
-  padding-top: 100px;
+  padding-top: 55px;
   clear: both;
   width: 70%;
 }
@@ -750,9 +758,38 @@ html, body {
   padding: 10px 20px;
   font-size: 1.2em;
 }
+.user_profile .add_friend_button {
+  background: white;
+  color: #000;
+  border: none;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.user_profile .add_friend_button:hover {
+  background: #AEB7E0;
+  color: #ffffff;
+}
+.user_profile .friends_thumbnail.img-thumbnail {
+  margin-right: 5px;
+  padding: 0px;
+  width: 80px;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  border: 1px solid black;
+}
+.user_profile .friends_thumbnail.img-thumbnail img {
+  width: 100%;
+  border-radius: 10px;
+}
+.user_profile .friends_thumbnail.img-thumbnail a {
+  display: block;
+}
 
 .user_profile footer {
   padding: 20px;
+  margin-top: 30px;
 }
 .user_profile footer .footer {
   position: absolute;

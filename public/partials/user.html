@@ -2,13 +2,14 @@
 	<article>
 		<section class="user_profile_info container">
 			<div class="row user_header" users-Background="images/university_overlay.jpg">
-				<a href="#/user/{{ userName }}"><i class="logo fa fa-graduation-cap fa-4x"></i></a>
-				<!-- <pre>{{userName}}</pre> -->
+				<div class="row grad_cap_icon">
+					<a href="#/user/{{ userName }}"><i class="logo fa fa-graduation-cap fa-4x"></i></a>
+				</div>
 				<!-- <pre>{{user}}</pre> -->
 				<div class="col-md-6 col-sm-1 personal_info">					
-					<!-- <h1>{{user.facebook.displayName}}</h1> -->
+					<h1>{{user_profile_data.user_name}}</h1>
 					<!-- <a class="logo" href="#/home"><img ng-src="images/logo.png"/></a> -->
-					
+					<!-- {{user_profile_data.$id}} = {{user.facebook.id}} -->
 					<a href="{{user_profile_data.link}}" target="_blank"><img class="profile_picture" ng-src="{{user_profile_data.picture}}" alt="profile_picture"></a>	
 					<div class="personal_info_data">
 						<p class="clearfix">{{user_profile_data.age}}</p>
@@ -18,6 +19,12 @@
 					<div class="edit" ng-if="user.facebook.id==user_profile_data.$id"> <!-- ng-if="user.facebook.id==user_profile_data.$id" -->
 						<p ng-click="$parent.userForm = !userForm"> Edit Profile</p>
 					</div>
+					<!-- <div ng-repeat="friend in user_profile_data.friends"> -->
+						<div ng-if="user.facebook.id!=user_profile_data.$id " class="add_friend">
+							<!-- {{friend.link_id}} -->
+							<button ng-click="addFriend()" class="add_friend_button">+ friend</button>
+						</div>
+					<!-- </div> -->
 					<div class="comments_made">
 						<div ng-if="!user_profile_data.points" class="comments_notice">
 							<p>You haven't made any comments yet</p>
@@ -29,7 +36,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-6">
+				<div class="col-md-6 col-sm-1 ">
 					<div>
 						<p class="events_link"><a href="#/events">EVENTS</a></p>
 					</div>
@@ -52,6 +59,11 @@
 				</div>
 				<div class="col-md-4 col-sm-1">
 					<h2>Friends</h2>
+					<div class="friends_pictures_wrapper">
+						<div ng-repeat="friend in user_profile_data.friends" class="img-thumbnail friends_thumbnail">
+							<a href="#/user/visit/{{friend.link_id}}" target="_blank"><img ng-src="{{friend.picture}}" alt="{{friend.name}}" title="{{friend.name}}"></a>
+						</div>
+					</div>
 				</div>	
 			</div>
 		</section>
